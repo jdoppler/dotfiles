@@ -21,15 +21,15 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [tcomment](https://github.com/tomtom/tcomment_vim)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
  
-####Adding plugins
-```sh
-cd ~/.dotfiles
-git submodule add [git-repository-url] vim/bundle/[plugin-name]
-git submodule update --init
-```
- 
-####Upgrading plugins
-```sh
-cd ~/.dotfiles
-git submodule foreach git pull origin master
-```
+ ####Adding plugins
+ ```sh
+ cd ~/.dotfiles
+ git submodule add [git-repository-url] vim/bundle/[plugin-name]
+ git submodule update --init
+ ```
+  
+ ####Upgrading plugins
+ ```sh
+ cd ~/.dotfiles
+ git submodule foreach git pull origin master
+ ```
