@@ -2,7 +2,6 @@
 ===
 
 ###Installation
-
 ```sh
 git clone -recursive git@github.com:jdoppler/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -10,13 +9,11 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 ```
 
 ###Contents
-
-*  ###bashrc
-*  ###inputrc
-*  ###vim & vimrc
+* ###bashrc
+* ###inputrc
+* ###vim & vimrc
 
  A tweaked .vimrc file with some plugins to make life easier:
-
  * [jedi-vim](https://github.com/davidhalter/jedi-vim)
  * [nerdtree](https://github.com/scrooloose/nerdtree)
  * [supertab](https://github.com/ervandew/supertab)
