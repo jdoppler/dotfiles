@@ -8,12 +8,12 @@ cd ~/.dotfiles
 chmod +x createsymlinks.sh && ./createsymlinks.sh
 ```
 
-###Contents:
-####.bashrc
+###Contents
+* ###bashrc
 
-####.inputrc
+* ###inputrc
 
-####.vim & .vimrc
+* ###vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:
  * [jedi-vim](https://github.com/davidhalter/jedi-vim)
  * [nerdtree](https://github.com/scrooloose/nerdtree)
@@ -21,15 +21,15 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [tcomment](https://github.com/tomtom/tcomment_vim)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
  
- #####Adding plugins
- ```sh
- cd ~/.dotfiles
- git submodule add [git-repository-url] vim/bundle/[plugin-name]
- git submodule update --init
- ```
+####Adding plugins
+```sh
+cd ~/.dotfiles
+git submodule add [git-repository-url] vim/bundle/[plugin-name]
+git submodule update --init
+```
  
- #####Upgrading plugins
- ```sh
- cd ~/.dotfiles
- git submodule foreach git pull origin master
- ```
+####Upgrading plugins
+```sh
+cd ~/.dotfiles
+git submodule foreach git pull origin master
+```
