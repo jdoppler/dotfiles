@@ -11,9 +11,9 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 
 ###Contents
 
-* ###bashrc
-* ###inputrc
-* ###vim & vimrc
+*  ###bashrc
+*  ###inputrc
+*  ###vim & vimrc
 
  A tweaked .vimrc file with some plugins to make life easier:
 
