@@ -166,6 +166,7 @@ alias gru="git remote update && git status"
 
 alias ITP="cd ${CODE_PATH}"
 alias EP_code="cd ${CODE_PATH}/exceptional-points"
+alias dot='cd $HOME/.dotfiles'
 
 alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
 alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
