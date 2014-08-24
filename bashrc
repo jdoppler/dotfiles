@@ -54,7 +54,7 @@ export EDITOR='vi'
 #-----------------------------------------------------------------------------
 case $(hostname) in
     "jd.local"|p238-???.vps.tuwien.ac.at|"fabian")
-
+        # main code directory
         CODE_PATH="$HOME/Dropbox/Project_ITP/Code/"
 
         # alias
@@ -62,7 +62,6 @@ case $(hostname) in
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
 
         # todo.txt
-        PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
         alias t='todo.sh'
         alias tp='t view project_view_without_groceries' # show projects without groceries list 
         alias tc='t view context'
@@ -74,15 +73,18 @@ case $(hostname) in
         source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
         source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias
 
+        PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
+
+        # path
+        PATH=$PATH:/usr/local/bin
+
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
             "jd.local"|"p238-???.vps.tuwien.ac.at")
-
-                # ipython notebook
+                # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
-
                 alias vi='/usr/local/bin/vim'
                 alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
 
@@ -91,34 +93,34 @@ case $(hostname) in
                 export TERM=xterm-256color
             ;;
             "fabian")
-                # open files according to their file-type
+                # alias
                 alias open='gnome-open'
-
-                # path to vi on office pc
+                alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
                 alias vi="$HOME/.local/bin/vim"
                 alias vim="$HOME/.local/bin/vim"
                 alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
                 alias vimdiff="$HOME/.local/bin/vimdiff"
 
+                # path
                 PATH=$PATH:$HOME/bin
                 PATH=$PATH:$HOME/bin/Komodo-Edit-8/bin
              ;;
         esac
         ;;
     "l01"|"l21.gb")
+        # main code directory
         CODE_PATH="$HOME/bin/"
 
+        # alias
         alias greens_code='cd ~/bin/greens_code/src'
-
-        #alias ip='~/.local/bin/ipython --pylab'
         alias python="$HOME/bin/python2.7"
         alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
-
         alias vi="$HOME/.local/bin/vim"
         alias vim="$HOME/.local/bin/vim"
         alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
         alias vimdiff="$HOME/.local/bin/vimdiff"
 
+        # path
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin
 
@@ -128,18 +130,25 @@ case $(hostname) in
 
         case $(hostname) in
             "l01")
+                # alias
                 alias mirage='/home/lv70072/libischg/bin/mirage'
 
+                # path
                 PATH=$PATH:/opt/sw/gnuplot/4.6/bin
+
+                # pythonpath
                 PYTHONPATH=$PYTHONPATH:/opt/sw/numpy/1.8.0/lib64/python2.7/site-packages/
                 PYTHONPATH=$PYTHONPATH:/opt/sw/scipy/0.13.2_numpy1.8.0/lib/python2.7/site-packages/
 
-                export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${BLUE}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+                # prompt
+                export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
             "l21.gb")
+                # alias
                 alias mirage='/home/lv70387/florianL/bin/mirage'
 
-                export PS1="${WHITE}\u${GREEN}@${WHITE}VSC-2:${BLUE}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+                # prompt
+                export PS1="${WHITE}\u${GREEN}@${WHITE}VSC-2:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
         esac
     ;;
@@ -161,7 +170,6 @@ alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
 #-----------------------------------------------------------------------------
 # PATH
 #-----------------------------------------------------------------------------
-PATH=$PATH:/usr/local/bin
 PATH=$PATH:$HOME/${CODE_PATH}/shell_utilities
 PATH=$PATH:$HOME/${CODE_PATH}/greens_code_utilities
 PATH=$PATH:$HOME/${CODE_PATH}/exceptional-points/bin
