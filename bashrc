@@ -38,6 +38,7 @@ GIT_PS1_SHOWUPSTREAM= #"auto git"
 #-----------------------------------------------------------------------------
 # COLORS
 #-----------------------------------------------------------------------------
+export CLICOLOR=1
 export GREEN='\[\033[0;32m\]'
 export BLUE='\[\033[0;34m\]'
 export LIGHTCYAN='\[\033[0;36m\]'
@@ -85,21 +86,14 @@ case $(hostname) in
             "jd.local"|"p238-???.vps.tuwien.ac.at")
                 # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
-                alias vi='/usr/local/bin/vim'
-                alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
 
                 # iTerm2 colors
-                export CLICOLOR=1
                 export TERM=xterm-256color
             ;;
             "fabian")
                 # alias
                 alias open='gnome-open'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
-                alias vi="$HOME/.local/bin/vim"
-                alias vim="$HOME/.local/bin/vim"
-                alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
-                alias vimdiff="$HOME/.local/bin/vimdiff"
 
                 # path
                 PATH=$PATH:$HOME/bin
@@ -115,10 +109,6 @@ case $(hostname) in
         alias greens_code='cd ~/bin/greens_code/src'
         alias python="$HOME/bin/python2.7"
         alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
-        alias vi="$HOME/.local/bin/vim"
-        alias vim="$HOME/.local/bin/vim"
-        alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
-        alias vimdiff="$HOME/.local/bin/vimdiff"
 
         # path
         PATH=~/.local/bin:$PATH
@@ -157,6 +147,20 @@ esac
 #-----------------------------------------------------------------------------
 # COMMON ALIASES
 #-----------------------------------------------------------------------------
+if [ "$(uname)" == "Darwin" ]; then
+    alias ls='ls -GF'
+    alias vi='/usr/local/bin/vim'
+    alias vim='/usr/local/bin/vim'
+    alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
+    alias vimdiff='/usr/local/bin/vimdiff'
+elif [ "$(uname)" == "Linux" ]; then
+    alias ls='ls -GF --color=auto'
+    alias vi="$HOME/.local/bin/vim"
+    alias vim="$HOME/.local/bin/vim"
+    alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
+    alias vimdiff="$HOME/.local/bin/vimdiff"
+fi
+
 alias ip="ipython --pylab"
 alias gru="git remote update && git status"
 
