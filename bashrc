@@ -38,16 +38,15 @@ GIT_PS1_SHOWUPSTREAM= #"auto git"
 #-----------------------------------------------------------------------------
 # COLORS
 #-----------------------------------------------------------------------------
-export GREEN='\e[0;32m'
-export BLUE='\e[0;34m'
-export WHITE='\e[0;37m'
-export DEFAULT='\e[0m'
+export GREEN='\[\033[0;32m\]'
+export BLUE='\[\033[0;34m\]'
+export LIGHTCYAN='\[\033[0;36m\]'
+export WHITE='\[\033[1;37m\]'
+export DEFAULT='\[\033[0m\]'
 
 #-----------------------------------------------------------------------------
 # VI(M)
 #-----------------------------------------------------------------------------
-# not needed if .inputrc exists?
-set -o vi
 export EDITOR='vi'
 
 #-----------------------------------------------------------------------------
@@ -67,7 +66,7 @@ case $(hostname) in
         source "$HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias"
 
         # promt
-        export PS1="${GREEN}\u${WHITE}:${BLUE}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+        export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
             "jd.local"|"p238-???.vps.tuwien.ac.at")
