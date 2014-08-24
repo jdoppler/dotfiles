@@ -63,7 +63,16 @@ case $(hostname) in
 
         # todo.txt
         PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
-        source "$HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias"
+        alias t='todo.sh'
+        alias tp='t view project_view_without_groceries' # show projects without groceries list 
+        alias tc='t view context'
+        alias tpg='t view project'
+        alias tpd='t view project_done'
+        alias tpdd='t view project_done all'
+        alias tdp='t view project_date'
+
+        source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
+        source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias
 
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
