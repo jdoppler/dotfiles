@@ -54,7 +54,7 @@ export EDITOR='vi'
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
 case $(hostname) in
-    "jd.local"|p238-???.vps.tuwien.ac.at|"fabian")
+    "jd.local"|p???-???.vps.tuwien.ac.at|"fabian")
         # main code directory
         CODE_PATH="$HOME/Dropbox/Project_ITP/Code/"
 
@@ -83,7 +83,7 @@ case $(hostname) in
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
-            "jd.local"|"p238-???.vps.tuwien.ac.at")
+            "jd.local"|p???-???.vps.tuwien.ac.at)
                 # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
 
@@ -122,9 +122,6 @@ case $(hostname) in
             "l01")
                 # alias
                 alias mirage='/home/lv70072/libischg/bin/mirage'
-
-                # path
-                PATH=$PATH:/opt/sw/gnuplot/4.6/bin
 
                 # pythonpath
                 PYTHONPATH=$PYTHONPATH:/opt/sw/numpy/1.8.0/lib64/python2.7/site-packages/
