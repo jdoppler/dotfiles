@@ -3,7 +3,7 @@
 
 ###Installation
 ```sh
-git clone -recursive git@github.com:jdoppler/dotfiles.git ~/.dotfiles
+git clone --recursive git@github.com:jdoppler/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 chmod +x createsymlinks.sh && ./createsymlinks.sh
 ```
