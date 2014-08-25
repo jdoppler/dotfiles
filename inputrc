@@ -24,15 +24,16 @@ $endif
 #-----------------------------------------------------------------------------
 # GENERAL SETTINGS
 #-----------------------------------------------------------------------------
-# Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
+# stop Tab from autocompleting regardless of filename case
+set completion-ignore-case off
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
 
-
 # Vim-like menu-complete (set wildmode=list:full wildchar=<Tab>)
 # List all matches in case multiple possible completions are possible
+# usage: <C-n>: next
+#        <C-p>: previous
 set show-all-if-ambiguous on
 set show-all-if-unmodified off
 set menu-complete-display-prefix off
