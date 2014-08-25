@@ -56,7 +56,7 @@ export EDITOR='vi'
 case $(hostname) in
     "jd.local"|p???-???.vps.tuwien.ac.at|"fabian")
         # main code directory
-        CODE_PATH="$HOME/Dropbox/Project_ITP/Code/"
+        CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
 
         # alias
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_full_waveguide_calculation/_vsc_setup"
@@ -78,6 +78,8 @@ case $(hostname) in
 
         # path
         PATH=$PATH:/usr/local/bin
+
+        PYTHONPATH=$PYTHONPATH:$CODE_PATH/PythonGreensCode
 
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
@@ -103,7 +105,7 @@ case $(hostname) in
         ;;
     "l01"|"l21.gb")
         # main code directory
-        CODE_PATH="$HOME/bin/"
+        CODE_PATH="$HOME/bin"
 
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
@@ -172,17 +174,16 @@ alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
 #-----------------------------------------------------------------------------
 # PATH
 #-----------------------------------------------------------------------------
-PATH=$PATH:$HOME/${CODE_PATH}/shell_utilities
-PATH=$PATH:$HOME/${CODE_PATH}/greens_code_utilities
-PATH=$PATH:$HOME/${CODE_PATH}/exceptional-points/bin
-PATH=$PATH:$HOME/${CODE_PATH}/exceptional-points/ep
+PATH=$PATH:${CODE_PATH}/shell_utilities
+PATH=$PATH:${CODE_PATH}/greens_code_utilities
+PATH=$PATH:${CODE_PATH}/exceptional-points/bin
+PATH=$PATH:${CODE_PATH}/exceptional-points/ep
 export PATH
 
 #-----------------------------------------------------------------------------
 # PYTHONPATH
 #-----------------------------------------------------------------------------
-PYTHONPATH=$PYTHONPATH:$HOME/${CODE_PATH}/shell_utilities
-PYTHONPATH=$PYTHONPATH:$HOME/${CODE_PATH}/greens_code_utilities
-PYTHONPATH=$PYTHONPATH:$HOME/${CODE_PATH}/exceptional-points/bin
-PYTHONPATH=$PYTHONPATH:$HOME/${CODE_PATH}/exceptional-points/ep
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional-points
 export PYTHONPATH
