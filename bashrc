@@ -115,6 +115,7 @@ case $(hostname) in
         # path
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin
+        PATH=$PATH:$HOME/bin/greens_code/bin
 
         #export VIMRUNTIME=$HOME/.local/share/vim/vim74/
         #export LC_ALL=C
