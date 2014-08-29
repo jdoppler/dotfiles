@@ -26,30 +26,22 @@ set wildmenu
 set wildmode=list:longest,full
 
 
-" Better copy & paste
-" When you want to paste large blocks of code into vim, press F12 before you
-" paste. At the bottom you should see ``-- INSERT (paste) --``.
+" better copy & paste
 set pastetoggle=<F12>
 set clipboard=unnamed,unnamedplus
 
 
-" Mouse and backspace
+" mouse and backspace
 set mouse=a  " on OSX press ALT and click
 set bs=2     " make backspace behave like normal again
 
 
-" Rebind <Leader> key
-" I like to have it here becuase it is easier to reach than the default and
-" it is next to ``m`` and ``n`` which I use for navigating between tabs.
+" rebind <Leader> key
 let mapleader = ","
 
 
-" Bind nohl
-" Removes highlight of your last search
-" ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>
+" remove highlight from the last search
+noremap <silent> <Leader>c :nohl<CR>
 
 
 " Quicksave command
@@ -91,7 +83,7 @@ vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
 
-" Show whitespace
+" show whitespace
 " MUST be inserted BEFORE the colorscheme command
 "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "au InsertLeave * match ExtraWhitespace /\s\+$/
