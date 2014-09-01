@@ -25,8 +25,7 @@ $endif
 # GENERAL SETTINGS
 #-----------------------------------------------------------------------------
 # turn off beep sounds
-# set bell-style none
-set bell-style visible
+set bell-style none
 
 # stop Tab from autocompleting regardless of filename case
 set completion-ignore-case off
