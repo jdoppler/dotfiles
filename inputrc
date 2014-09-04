@@ -24,6 +24,9 @@ $endif
 #-----------------------------------------------------------------------------
 # GENERAL SETTINGS
 #-----------------------------------------------------------------------------
+# turn off beep sounds
+set bell-style none
+
 # stop Tab from autocompleting regardless of filename case
 set completion-ignore-case off
 
@@ -34,7 +37,7 @@ set mark-symlinked-directories on
 # List all matches in case multiple possible completions are possible
 # usage: <C-n>: next
 #        <C-p>: previous
-set show-all-if-ambiguous on
+set show-all-if-ambiguous off
 set show-all-if-unmodified off
 set menu-complete-display-prefix off
 
