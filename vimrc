@@ -32,7 +32,8 @@ set clipboard=unnamed,unnamedplus
 
 
 " mouse and backspace
-set mouse=a  " on OSX press ALT and click
+set mouse=a  " to still copy a selection, press shift (Linux) or alt (Mac)
+             " while selecting
 set bs=2     " make backspace behave like normal again
 
 
