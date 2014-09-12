@@ -54,7 +54,7 @@ export EDITOR='vi'
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
 case $(hostname) in
-    "jd.local"|p???-???.vps.tuwien.ac.at|"fabian")
+    "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
         # main code directory
         CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
 
@@ -77,7 +77,7 @@ case $(hostname) in
         PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
 
         # path
-        PATH=$PATH:/usr/local/bin
+        PATH=/usr/local/bin:$PATH
 
         PYTHONPATH=$PYTHONPATH:$CODE_PATH/PythonGreensCode
 
