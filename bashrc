@@ -62,12 +62,12 @@ case $(hostname) in
         CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
 
         # alias
-        alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_full_waveguide_calculation/_vsc_setup"
+        alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
 
         # todo.txt
         alias t='todo.sh'
-        alias tp='t view project_view_without_groceries' # show projects without groceries list 
+        alias tp='t view project_view_without_groceries'
         alias tc='t view context'
         alias tpg='t view project'
         alias tpd='t view project_done'
@@ -88,7 +88,7 @@ case $(hostname) in
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
-            "jd.local"|p???-???.vps.tuwien.ac.at)
+            "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at)
                 # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
 
@@ -119,10 +119,6 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin
         PATH=$PATH:$HOME/bin/greens_code/bin
-
-        #export VIMRUNTIME=$HOME/.local/share/vim/vim74/
-        #export LC_ALL=C
-        #export OMP_NUM_THREADS=1
 
         case $(hostname) in
             "l01")
