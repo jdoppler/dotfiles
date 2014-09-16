@@ -115,6 +115,7 @@ if g:ipy_perform_mappings != 0
     map  <buffer> <silent> <F9>           <Plug>(IPython-RunLines)
     map  <buffer> <silent> <LocalLeader>d <Plug>(IPython-OpenPyDoc)
     map  <buffer> <silent> <LocalLeader>s <Plug>(IPython-UpdateShell)
+    map  <buffer> <silent> <Leader>s <Plug>(IPython-UpdateShell)
     map  <buffer> <silent> <S-F9>         <Plug>(IPython-ToggleReselect)
     "map  <buffer> <silent> <C-F6>         <Plug>(IPython-StartDebugging)
     "map  <buffer> <silent> <F6>           <Plug>(IPython-BreakpointSet)
