@@ -97,6 +97,7 @@ case $(hostname) in
             ;;
             "fabian")
                 # alias
+                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
                 alias open='gnome-open'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
 
