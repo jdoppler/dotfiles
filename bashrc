@@ -121,6 +121,9 @@ case $(hostname) in
         PATH=$PATH:$HOME/bin
         PATH=$PATH:$HOME/bin/greens_code/bin
 
+        # tell python to skip buffering
+        export PYTHONUNBUFFERED=1
+
         case $(hostname) in
             "l01")
                 # alias
