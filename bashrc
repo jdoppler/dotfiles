@@ -105,6 +105,9 @@ case $(hostname) in
                 # path
                 PATH=$PATH:$HOME/bin
                 PATH=$PATH:$HOME/bin/Komodo-Edit-8/bin
+
+                # MKL environment
+                source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
              ;;
         esac
         ;;
