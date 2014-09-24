@@ -56,6 +56,9 @@ export EDITOR='vi'
 #-----------------------------------------------------------------------------
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
+# tell python to skip buffering
+export PYTHONUNBUFFERED=1
+
 case $(hostname) in
     "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
         # main code directory
@@ -97,7 +100,7 @@ case $(hostname) in
             ;;
             "fabian")
                 # alias
-                alias qstat='ssh -t doppler@vsc.tuwien.ac.at "qstat"'
+                alias vscqstat='ssh -t doppler@vsc.tuwien.ac.at "qstat"'
                 alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
                 alias open='gnome-open'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
@@ -126,9 +129,6 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin
         PATH=$PATH:$HOME/bin/greens_code/bin
-
-        # tell python to skip buffering
-        export PYTHONUNBUFFERED=1
 
         case $(hostname) in
             "l01")
