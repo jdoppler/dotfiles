@@ -109,6 +109,7 @@ case $(hostname) in
 
                 # MKL environment
                 source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
+                export LD_LIBRARY_PATH="/home/doppler/intel/mkl/lib/intel64/"
              ;;
         esac
         ;;
