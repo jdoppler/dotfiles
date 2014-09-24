@@ -104,6 +104,7 @@ case $(hostname) in
 
                 # path
                 PATH=$PATH:$HOME/bin
+                PATH=$PATH:$HOME/greens_code/bin
                 PATH=$PATH:$HOME/bin/Komodo-Edit-8/bin
 
                 # MKL environment
