@@ -166,7 +166,7 @@ elif [ "$(uname)" == "Linux" ]; then
     alias ls='ls -GF --color=auto'
     alias vi="$HOME/.local/bin/vim"
     alias vim="$HOME/.local/bin/vim"
-    alias vless="vim -u $HOME/.local/share/vim/vim74/less.vim"
+    alias vless="vim -u $HOME/.local/share/vim/vim74/macros/less.vim"
     alias vimdiff="$HOME/.local/bin/vimdiff"
 fi
 
