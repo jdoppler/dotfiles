@@ -148,6 +148,9 @@ case $(hostname) in
 
                 # prompt
                 export PS1="${WHITE}\u${GREEN}@${WHITE}VSC-2:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+
+                # no core dumps
+                ulimit -c 0
             ;;
         esac
     ;;
