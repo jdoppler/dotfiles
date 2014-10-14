@@ -128,7 +128,11 @@ case $(hostname) in
         # path
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin
+        PATH=$PATH:$HOME/bin/greens_code
         PATH=$PATH:$HOME/bin/greens_code/bin
+
+        # increase stack size
+        ulimit -s unlimited
 
         case $(hostname) in
             "l01")
