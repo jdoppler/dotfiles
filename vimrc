@@ -279,3 +279,8 @@ autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 "
 " Settings for NERDTree
 nmap <F4> :NERDTreeToggle<CR>
+
+" Settings for vim-ipython
+
+" Settings for fugitive-vim
+command Gru :Git remote update <Bar> :Gstatus
