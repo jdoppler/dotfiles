@@ -283,4 +283,4 @@ nmap <F4> :NERDTreeToggle<CR>
 " Settings for vim-ipython
 
 " Settings for fugitive-vim
-command Gru :Git remote update <Bar> :Gstatus
+command Gru :Gfetch <Bar> :Gstatus
