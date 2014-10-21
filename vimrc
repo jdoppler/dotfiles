@@ -45,19 +45,19 @@ let mapleader = ","
 noremap <silent> <Leader>c :nohl<CR>
 
 
-" Quicksave command
+" quicksave command
 "" noremap <C-Z> :update<CR>
 "" vnoremap <C-Z> <C-C>:update<CR>
 "" inoremap <C-Z> <C-O>:update<CR>
 
 
-" Quick quit command
+" quick quit command
 "" noremap <Leader>e :quit<CR>  " Quit current window
 "" noremap <Leader>E :qa!<CR>   " Quit all windows
 
 
-" bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
-" Every unnecessary keystroke that can be saved is good for your health :)
+" bind Ctrl+<movement> keys to move around the windows, instead of using 
+" Ctrl+w + <movement>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -67,6 +67,7 @@ nnoremap <C-h> <C-w>h
 " do not move linewise
 nnoremap j gj
 nnoremap k gk
+
 
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
@@ -78,19 +79,16 @@ vnoremap <Leader>s :sort<CR>
 
 
 " easier moving of code blocks
-" Try to go into visual mode (v), thenselect several lines of code here and
-" then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
 
-" show whitespace
-" MUST be inserted BEFORE the colorscheme command
+" show whitespace (must be inserted before the colorscheme command)
 "autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "au InsertLeave * match ExtraWhitespace /\s\+$/
 
 
-" Color scheme 
+" color scheme 
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " git clone https://github.com/tomasr/molokai.git
 set t_Co=256
@@ -100,7 +98,7 @@ let g:rehash256=1
 set background=light
 
 
-" Enable syntax highlighting
+" enable syntax highlighting
 filetype off
 filetype plugin indent on
 syntax on
@@ -117,34 +115,31 @@ highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 "highlight ColorColumn ctermbg=233
 
 
-" easier formatting of paragraphs
-"" vmap Q gq
-"" nmap Q gqap
-
-
-" Useful settings
+" increase history size
 set history=700
 set undolevels=700
 
 
-" Real programmers don't use TABs but spaces
+" use tabs instead of spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
 set smartindent
+" repair smartindent default which places comment characters at the beginning of
+" a line: http://stackoverflow.com/questions/2360249
+inoremap # X#
 
 
-" Make search case insensitive
+" make search case insensitive
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
 
-" Disable stupid backup and swap files - they trigger too many events
-" for file system watchers
+" disable backup and swap files
 set nobackup
 set nowritebackup
 set noswapfile
@@ -180,7 +175,7 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 
-" toggle relative linenumber " default: hybrid mode
+" toggle relative linenumber " default: hybrid mode (only in vim 7.4)
 set relativenumber
 set number
 function! NumberToggle()
@@ -199,7 +194,7 @@ nnoremap <F3> :call NumberToggle()<CR>
 command FormatXML :%!xmllint --format --recover \- <CR>
 
 " show diff between current buffer and the original file
-command Diff :w !diff % -
+command Diff :w !diff %
 
 
 " show registers
@@ -228,14 +223,14 @@ nnoremap <F2> :!%<CR>
 " ============================================================================
 
 
-" Setup Pathogen to manage your plugins
+" setup pathogen to manage your plugins
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-" Now you can install any plugin into a .vim/bundle/plugin-name/ folder
+" now you can install any plugin into a .vim/bundle/plugin-name/ folder
 call pathogen#infect()
 
 
-" Settings for jedi-vim
+" settings for jedi-vim
 " cd ~/.vim/bundle
 " git clone git://github.com/davidhalter/jedi-vim.git
 let g:jedi#usages_command = "<leader>u"
@@ -250,11 +245,9 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "right"
 
-" map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-
-" Better navigating through omnicomplete option list
-" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
+" better navigating through omnicomplete option list
+" see http://stackoverflow.com/questions/2170023/
 set completeopt=longest,menuone
 function! OmniPopup(action)
     if pumvisible()
@@ -270,17 +263,23 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" Settings for Flake8
-autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 
 " Settings for tComment
-"
+
+
 " Settings for Supertab
-"
+
+
 " Settings for NERDTree
 nmap <F4> :NERDTreeToggle<CR>
 
+
 " Settings for vim-ipython
+
+
+" Settings for vim-flake8
+autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+
 
 " Settings for fugitive-vim
 command Gru :Gfetch <Bar> :Gstatus
