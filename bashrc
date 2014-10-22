@@ -13,9 +13,14 @@ fi
 # unmap <C-s>
 stty stop undef
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS
+shopt -s checkwinsize
+
 #-----------------------------------------------------------------------------
 # HISTORY
 #-----------------------------------------------------------------------------
+# append to the history file, don't overwrite it
 shopt -s histappend
 export HISTSIZE=100000
 export PROMPT_COMMAND="history -a; history -n;"
@@ -188,6 +193,11 @@ alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
 alias pra3='ssh -X pra3@vsc.tuwien.ac.at'
 alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
 alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 #-----------------------------------------------------------------------------
 # PATH
