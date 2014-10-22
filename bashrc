@@ -185,8 +185,8 @@ alias EP_code="cd ${CODE_PATH}/exceptional-points"
 alias dot='cd $HOME/.dotfiles'
 
 alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
+alias pra3='ssh -X pra3@vsc.tuwien.ac.at'
 alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
-alias pra3='ssh -X doppler@pra3.tuwien.ac.at'
 alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
 
 #-----------------------------------------------------------------------------
