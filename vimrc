@@ -202,6 +202,11 @@ command Diff :w !diff %
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 
 
+" show marks
+" note that m cannot be associated with a mark anymore
+nnoremap <silent> mm :marks <CR>
+
+
 " execute current file
 nnoremap <F2> :!%<CR>
 
