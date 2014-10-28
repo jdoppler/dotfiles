@@ -291,6 +291,7 @@ nmap <F4> :NERDTreeToggle<CR>
 let g:airline_theme="badwolf"
 let g:airline_left_sep=""
 let g:airline_right_sep=""
+let g:airline#extensions#whitespace#enabled=0
 
 
 " Settings for vim-ipython
