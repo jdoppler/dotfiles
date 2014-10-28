@@ -19,6 +19,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [nerdtree](https://github.com/scrooloose/nerdtree)
  * [supertab](https://github.com/ervandew/supertab)
  * [tcomment](https://github.com/tomtom/tcomment_vim)
+ * [vim-airline](https://github.com/bling/vim-airline)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
  * [vim-fugitive](https://github.com/tpope/vim-fugitive)
  * [vim-ipython](https://github.com/ivanov/vim-ipython)
