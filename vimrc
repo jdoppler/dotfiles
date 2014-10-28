@@ -56,6 +56,10 @@ noremap <silent> <Leader>c :nohl<CR>
 "" noremap <Leader>E :qa!<CR>   " Quit all windows
 
 
+" open vsplits on the right
+set splitright
+
+
 " bind Ctrl+<movement> keys to move around the windows, instead of using 
 " Ctrl+w + <movement>
 nnoremap <C-j> <C-w>j
@@ -192,6 +196,7 @@ nnoremap <F3> :call NumberToggle()<CR>
 
 " reformat .xml files
 command FormatXML :%!xmllint --format --recover \- <CR>
+
 
 " show diff between current buffer and the original file
 command Diff :w !diff %
