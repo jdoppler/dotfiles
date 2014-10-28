@@ -73,6 +73,9 @@ nnoremap j gj
 nnoremap k gk
 
 
+" always show some screenlines below the cursor
+set scrolloff=5
+
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
