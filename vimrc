@@ -73,6 +73,9 @@ nnoremap j gj
 nnoremap k gk
 
 
+" always show some screenlines below the cursor
+set scrolloff=5
+
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
@@ -289,6 +292,7 @@ nmap <F4> :NERDTreeToggle<CR>
 let g:airline_theme="badwolf"
 let g:airline_left_sep=""
 let g:airline_right_sep=""
+let g:airline#extensions#whitespace#enabled=0
 
 let g:airline_section_y=airline#section#create(['BN: %n'])
 let g:airline_section_warning=''
