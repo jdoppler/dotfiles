@@ -159,6 +159,7 @@ set cursorline
 
 " statusline
 set laststatus=2
+" the following lines are ignored with vim-airline switched on
 set statusline=
 set statusline+=%-10.3n\                     " buffer number
 set statusline+=%f\                          " filename
@@ -289,6 +290,8 @@ let g:airline_theme="badwolf"
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 
+let g:airline_section_y=airline#section#create(['BN: %n'])
+let g:airline_section_warning=''
 
 " Settings for vim-ipython
 
