@@ -215,3 +215,18 @@ PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional-points
 export PYTHONPATH
+
+#-----------------------------------------------------------------------------
+# FUNCTIONS
+#-----------------------------------------------------------------------------
+# shadow solve_xml_mumps found in PATH and print svn revision output to file
+# before execution
+function solve_xml_mumps {
+    if [[ -z "$1" ]]; then
+        DEV="_dev"
+    fi
+    SVN_LOG_FILE="SVN_REV.log"
+    SVN_DIR=$(dirname $(which solve_xml_mumps${DEV}))/../src
+    svn info ${SVN_DIR} > ${SVN_LOG_FILE}
+    command solve_xml_mumps
+}
