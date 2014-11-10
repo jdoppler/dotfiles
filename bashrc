@@ -228,8 +228,8 @@ function solve_xml_mumps {
         DEV=""
     fi
     SVN_LOG_FILE="SVN_REV.log"
-    GREENS_CODE_EXE=$(which solve_xml_mumps${DEV})
-    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE}))/../src
+    GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
+    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
-    command solve_xml_mumps
+    command solve_xml_mumps${DEV}
 }
