@@ -222,11 +222,14 @@ export PYTHONPATH
 # shadow solve_xml_mumps found in PATH and print svn revision output to file
 # before execution
 function solve_xml_mumps {
-    if [[ -z "$1" ]]; then
+    if [[ "$1" == "dev" ]]; then
         DEV="_dev"
+    else
+        DEV=""
     fi
     SVN_LOG_FILE="SVN_REV.log"
-    SVN_DIR=$(dirname $(which solve_xml_mumps${DEV}))/../src
+    GREENS_CODE_EXE=$(which solve_xml_mumps${DEV})
+    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE}))/../src
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
     command solve_xml_mumps
 }
