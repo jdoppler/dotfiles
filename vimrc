@@ -100,9 +100,9 @@ vnoremap > >gv  " better indentation
 " git clone https://github.com/tomasr/molokai.git
 set t_Co=256
 colorscheme molokai
-let g:molokai_original=1
-let g:rehash256=1
-set background=light
+" let g:molokai_original=1
+" let g:rehash256=1
+" set background=light
 
 
 " enable syntax highlighting
@@ -183,7 +183,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 
-" toggle relative linenumber " default: hybrid mode (only in vim 7.4)
+" toggle relative linenumber
+" default: hybrid mode (only in vim 7.4)
 set relativenumber
 set number
 function! NumberToggle()
