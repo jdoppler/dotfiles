@@ -64,6 +64,9 @@ export EDITOR='vi'
 # tell python to skip buffering
 export PYTHONUNBUFFERED=1
 
+# greens_code xml templates
+export GREENS_CODE_XML=$HOME/bin/xml_templates
+
 case $(hostname) in
     "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
         # main code directory
@@ -122,10 +125,9 @@ case $(hostname) in
         alias python="$HOME/bin/python2.7"
         alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
-        # path & XML dir
+        # path
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin/greens_code
-        export GREENS_CODE_XML=$HOME/bin/_xml_templates
 
         # MKL environment
         PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
