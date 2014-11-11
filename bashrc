@@ -73,7 +73,7 @@ case $(hostname) in
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
 
-        # todo.txt
+        # todo.txt aliases and paths
         alias t='todo.sh'
         alias tp='t view project_view_without_groceries'
         alias tc='t view context'
@@ -83,8 +83,6 @@ case $(hostname) in
         alias tdp='t view project_date'
 
         source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
-        source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias
-
         PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
 
         # path
@@ -105,18 +103,12 @@ case $(hostname) in
             ;;
             "fabian")
                 # alias
-                alias vscqstat='ssh -t doppler@vsc.tuwien.ac.at "qstat"'
-                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
-                alias open='gnome-open'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
-
-                # path
-                PATH=$PATH:$HOME/bin
-                PATH=$PATH:$HOME/greens_code/bin
-                PATH=$PATH:$HOME/bin/Komodo-Edit-8/bin
+                alias open='gnome-open'
+                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
 
                 # MKL environment
-                source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
+                # source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
                 export LD_LIBRARY_PATH="/home/doppler/intel/mkl/lib/intel64/"
              ;;
         esac
@@ -132,9 +124,10 @@ case $(hostname) in
 
         # path
         PATH=~/.local/bin:$PATH
-        PATH=$PATH:$HOME/bin
         PATH=$PATH:$HOME/bin/greens_code
-        PATH=$PATH:$HOME/bin/greens_code/bin
+
+        # MKL environment
+        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
 
         # increase stack size
         ulimit -s unlimited
@@ -202,6 +195,8 @@ alias l='ls -CF'
 #-----------------------------------------------------------------------------
 # PATH
 #-----------------------------------------------------------------------------
+PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin/greens_code/bin
 PATH=$PATH:${CODE_PATH}/shell_utilities
 PATH=$PATH:${CODE_PATH}/greens_code_utilities
 PATH=$PATH:${CODE_PATH}/exceptional-points/bin
