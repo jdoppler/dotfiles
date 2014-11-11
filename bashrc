@@ -61,16 +61,9 @@ export EDITOR='vi'
 #-----------------------------------------------------------------------------
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
-# tell python to skip buffering
-export PYTHONUNBUFFERED=1
-
-# greens_code xml templates
-export GREENS_CODE_XML=$HOME/bin/xml_templates
 
 case $(hostname) in
     "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
-        # main code directory
-        CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
 
         # alias
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
@@ -117,8 +110,6 @@ case $(hostname) in
         esac
         ;;
     "l01"|"l21.gb")
-        # main code directory
-        CODE_PATH="$HOME/bin"
 
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
@@ -127,7 +118,6 @@ case $(hostname) in
 
         # path
         PATH=~/.local/bin:$PATH
-        PATH=$PATH:$HOME/bin/greens_code
 
         # MKL environment
         PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
@@ -165,12 +155,25 @@ esac
 # COMMON ALIASES
 #-----------------------------------------------------------------------------
 if [ "$(uname)" == "Darwin" ]; then
+    # main code directory
+    CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
+    # alias
+
     alias ls='ls -GF'
     alias vi='/usr/local/bin/vim'
     alias vim='/usr/local/bin/vim'
     alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
     alias vimdiff='/usr/local/bin/vimdiff'
+
 elif [ "$(uname)" == "Linux" ]; then
+    # main code directory
+    CODE_PATH="$HOME/bin"
+    # tell python to skip buffering
+    export PYTHONUNBUFFERED=1
+    # greens_code xml templates
+    export GREENS_CODE_XML=$HOME/bin/xml_templates
+
+    # alias
     alias ls='ls -GF --color=auto'
     alias vi="$HOME/.local/bin/vim"
     alias vim="$HOME/.local/bin/vim"
