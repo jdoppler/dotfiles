@@ -65,7 +65,7 @@ export EDITOR='vi'
 export PYTHONUNBUFFERED=1
 
 case $(hostname) in
-    "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
+    "jd"|"fabian")
         # main code directory
         CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
 
@@ -96,7 +96,7 @@ case $(hostname) in
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
-            "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at)
+            "jd")
                 # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
 
