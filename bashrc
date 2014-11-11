@@ -61,19 +61,14 @@ export EDITOR='vi'
 #-----------------------------------------------------------------------------
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
-# tell python to skip buffering
-export PYTHONUNBUFFERED=1
 
 case $(hostname) in
     "jd"|"fabian")
-        # main code directory
-        CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
-
         # alias
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
 
-        # todo.txt
+        # todo.txt aliases and paths
         alias t='todo.sh'
         alias tp='t view project_view_without_groceries'
         alias tc='t view context'
@@ -83,8 +78,6 @@ case $(hostname) in
         alias tdp='t view project_date'
 
         source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
-        source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_alias
-
         PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
 
         # path
@@ -105,25 +98,17 @@ case $(hostname) in
             ;;
             "fabian")
                 # alias
-                alias vscqstat='ssh -t doppler@vsc.tuwien.ac.at "qstat"'
-                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
-                alias open='gnome-open'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
-
-                # path
-                PATH=$PATH:$HOME/bin
-                PATH=$PATH:$HOME/greens_code/bin
-                PATH=$PATH:$HOME/bin/Komodo-Edit-8/bin
+                alias open='gnome-open'
+                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
 
                 # MKL environment
-                source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
+                # source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
                 export LD_LIBRARY_PATH="/home/doppler/intel/mkl/lib/intel64/"
              ;;
         esac
         ;;
     "l01"|"l21.gb")
-        # main code directory
-        CODE_PATH="$HOME/bin"
 
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
@@ -132,9 +117,9 @@ case $(hostname) in
 
         # path
         PATH=~/.local/bin:$PATH
-        PATH=$PATH:$HOME/bin
-        PATH=$PATH:$HOME/bin/greens_code
-        PATH=$PATH:$HOME/bin/greens_code/bin
+
+        # MKL environment
+        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
 
         # increase stack size
         ulimit -s unlimited
@@ -169,12 +154,25 @@ esac
 # COMMON ALIASES
 #-----------------------------------------------------------------------------
 if [ "$(uname)" == "Darwin" ]; then
+    # main code directory
+    CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
+    # alias
+
     alias ls='ls -GF'
     alias vi='/usr/local/bin/vim'
     alias vim='/usr/local/bin/vim'
     alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
     alias vimdiff='/usr/local/bin/vimdiff'
+
 elif [ "$(uname)" == "Linux" ]; then
+    # main code directory
+    CODE_PATH="$HOME/bin"
+    # tell python to skip buffering
+    export PYTHONUNBUFFERED=1
+    # greens_code xml templates
+    export GREENS_CODE_XML=$HOME/bin/xml_templates
+
+    # alias
     alias ls='ls -GF --color=auto'
     alias vi="$HOME/.local/bin/vim"
     alias vim="$HOME/.local/bin/vim"
@@ -202,6 +200,8 @@ alias l='ls -CF'
 #-----------------------------------------------------------------------------
 # PATH
 #-----------------------------------------------------------------------------
+PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin/greens_code/bin
 PATH=$PATH:${CODE_PATH}/shell_utilities
 PATH=$PATH:${CODE_PATH}/greens_code_utilities
 PATH=$PATH:${CODE_PATH}/exceptional-points/bin
@@ -215,3 +215,23 @@ PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional-points
 export PYTHONPATH
+
+#-----------------------------------------------------------------------------
+# FUNCTIONS
+#-----------------------------------------------------------------------------
+# shadow solve_xml_mumps found in PATH and print svn revision output to file
+# before execution
+function solve_xml_mumps {
+    if [[ "$1" == "dev" ]]; then
+        DEV="_dev"
+        ARGS="${@: 2}"
+    else
+        DEV=""
+        ARGS="${@}"
+    fi
+    SVN_LOG_FILE="SVN_REV.log"
+    GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
+    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
+    svn info ${SVN_DIR} > ${SVN_LOG_FILE}
+    command solve_xml_mumps${DEV} "$ARGS"
+}
