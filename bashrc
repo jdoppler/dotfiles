@@ -220,12 +220,14 @@ export PYTHONPATH
 function solve_xml_mumps {
     if [[ "$1" == "dev" ]]; then
         DEV="_dev"
+        ARGS="${@: 2}"
     else
         DEV=""
+        ARGS="${@}"
     fi
     SVN_LOG_FILE="SVN_REV.log"
     GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
     SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
-    command solve_xml_mumps${DEV}
+    command solve_xml_mumps${DEV} "$ARGS"
 }
