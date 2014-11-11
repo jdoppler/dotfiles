@@ -125,7 +125,7 @@ case $(hostname) in
         # path & XML dir
         PATH=~/.local/bin:$PATH
         PATH=$PATH:$HOME/bin/greens_code
-        export GREENS_CODE_XML=$HOME/_xml_templates
+        export GREENS_CODE_XML=$HOME/bin/_xml_templates
 
         # MKL environment
         PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
