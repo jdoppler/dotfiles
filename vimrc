@@ -144,6 +144,9 @@ set smartindent
 " a line: http://stackoverflow.com/questions/2360249
 inoremap # X#
 
+" use tabs for makefiles and *.inc files
+autocmd FileType make,pov setlocal noexpandtab
+
 
 " make search case insensitive
 set hlsearch
