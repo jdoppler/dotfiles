@@ -127,6 +127,12 @@ set history=700
 set undolevels=700
 
 
+" jump to last position if reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
 " use tabs instead of spaces
 set tabstop=4
 set softtabstop=4
