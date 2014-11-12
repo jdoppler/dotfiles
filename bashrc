@@ -30,10 +30,8 @@ export PROMPT_COMMAND="history -a; history -n;"
 #-----------------------------------------------------------------------------
 alias gru='git remote update && git status'
 
-# git auto-completion
+# git auto-completion & shell promt
 source ~/.git-completion.bash
-
-# git shell promt
 source ~/.git-prompt.sh
 
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -61,10 +59,8 @@ export EDITOR='vi'
 #-----------------------------------------------------------------------------
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
-
 case $(hostname) in
-    "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at|"fabian")
-
+    "jd"|"fabian")
         # alias
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
@@ -90,7 +86,7 @@ case $(hostname) in
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
         case $(hostname) in
-            "jd.local"|p???-???.vps.tuwien.ac.at|e???-???.eduroam.tuwien.ac.at)
+            "jd")
                 # alias
                 alias ipn='ipython notebook --pylab=inline --browser=Safari'
 
@@ -158,13 +154,11 @@ if [ "$(uname)" == "Darwin" ]; then
     # main code directory
     CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
     # alias
-
     alias ls='ls -GF'
     alias vi='/usr/local/bin/vim'
     alias vim='/usr/local/bin/vim'
     alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
     alias vimdiff='/usr/local/bin/vimdiff'
-
 elif [ "$(uname)" == "Linux" ]; then
     # main code directory
     CODE_PATH="$HOME/bin"
@@ -172,7 +166,6 @@ elif [ "$(uname)" == "Linux" ]; then
     export PYTHONUNBUFFERED=1
     # greens_code xml templates
     export GREENS_CODE_XML=$HOME/bin/xml_templates
-
     # alias
     alias ls='ls -GF --color=auto'
     alias vi="$HOME/.local/bin/vim"
