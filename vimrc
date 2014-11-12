@@ -145,7 +145,7 @@ set smartindent
 inoremap # X#
 
 " use tabs for makefiles and *.inc files
-autocmd FileType make,pov setlocal noexpandtab
+autocmd FileType make,pov setlocal noexpandtab shiftwidth=8 softtabstop=0
 
 
 " make search case insensitive
