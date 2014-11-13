@@ -178,7 +178,7 @@ alias ip="ipython --pylab"
 alias gru="git remote update && git status"
 
 alias ITP="cd ${CODE_PATH}"
-alias EP_code="cd ${CODE_PATH}/exceptional-points"
+alias EP_code="cd ${CODE_PATH}/exceptional_points"
 alias dot='cd $HOME/.dotfiles'
 
 alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
@@ -198,8 +198,8 @@ PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/bin/greens_code/bin
 PATH=$PATH:${CODE_PATH}/shell_utilities
 PATH=$PATH:${CODE_PATH}/greens_code_utilities
-PATH=$PATH:${CODE_PATH}/exceptional-points/bin
-PATH=$PATH:${CODE_PATH}/exceptional-points/ep
+PATH=$PATH:${CODE_PATH}/exceptional_points/bin
+PATH=$PATH:${CODE_PATH}/exceptional_points/ep
 export PATH
 
 #-----------------------------------------------------------------------------
@@ -207,7 +207,7 @@ export PATH
 #-----------------------------------------------------------------------------
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
-PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional-points
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional_points
 export PYTHONPATH
 
 #-----------------------------------------------------------------------------
