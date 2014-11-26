@@ -10,6 +10,8 @@
 #-----------------------------------------------------------------------------
 set editing-mode vi
 set keymap vi
+# show '+' in insert-mode and ':' in command-mode
+set show-mode-in-prompt on
 
 $if mode=vi
     set keymap vi-command
