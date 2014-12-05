@@ -39,6 +39,7 @@ set bs=2     " make backspace behave like normal again
 
 " rebind <Leader> key
 let mapleader = ","
+let maplocalleader = ","
 
 
 " remove highlight from the last search
@@ -307,6 +308,7 @@ let g:airline#extensions#whitespace#enabled=0
 let g:airline_section_y=airline#section#create(['BN: %n'])
 let g:airline_section_warning=''
 
+
 " Settings for vim-ipython
 
 
@@ -316,3 +318,9 @@ autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 
 " Settings for fugitive-vim
 command Gru :Gfetch <Bar> :Gstatus
+
+
+" Settings for LaTeX-Box
+let g:LatexBox_quickfix=3
+let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
+autocmd Filetype tex map <LocalLeader>fs ':LatexView ' . '-forward-search ' . shellescape(expand('%:p')) . ' ' . line(".") . '\<CR>'
