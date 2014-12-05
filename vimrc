@@ -255,9 +255,11 @@ nnoremap <F2> :!%<CR>
 call pathogen#infect()
 
 
+" settings for fugitive-vim
+command Gru :Gfetch <Bar> :Gstatus
+
+
 " settings for jedi-vim
-" cd ~/.vim/bundle
-" git clone git://github.com/davidhalter/jedi-vim.git
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#goto_assignments_command = "<leader>g"
@@ -289,14 +291,20 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 
-" Settings for tComment
-
-
-" Settings for Supertab
+" Settings for LaTeX-Box
+let g:LatexBox_quickfix=3
+let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
+autocmd Filetype tex map <LocalLeader>fs ':LatexView ' . '-forward-search ' . shellescape(expand('%:p')) . ' ' . line(".") . '\<CR>'
 
 
 " Settings for NERDTree
 nmap <F4> :NERDTreeToggle<CR>
+
+
+" Settings for tComment
+
+
+" Settings for Supertab
 
 
 " Settings for vim-airline
@@ -304,23 +312,14 @@ let g:airline_theme="badwolf"
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline#extensions#whitespace#enabled=0
-
-let g:airline_section_y=airline#section#create(['BN: %n'])
+let g:airline_section_y=airline#section#create(['BN: %n'])  " show buffernumber
 let g:airline_section_warning=''
-
-
-" Settings for vim-ipython
 
 
 " Settings for vim-flake8
 autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 
 
-" Settings for fugitive-vim
-command Gru :Gfetch <Bar> :Gstatus
+" Settings for vim-ipython
 
 
-" Settings for LaTeX-Box
-let g:LatexBox_quickfix=3
-let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
-autocmd Filetype tex map <LocalLeader>fs ':LatexView ' . '-forward-search ' . shellescape(expand('%:p')) . ' ' . line(".") . '\<CR>'
