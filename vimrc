@@ -294,7 +294,6 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " Settings for LaTeX-Box
 let g:LatexBox_quickfix=3
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
-autocmd Filetype tex map <LocalLeader>fs ':LatexView ' . '-forward-search ' . shellescape(expand('%:p')) . ' ' . line(".") . '\<CR>'
 
 
 " Settings for NERDTree
