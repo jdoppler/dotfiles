@@ -294,6 +294,13 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " Settings for LaTeX-Box
 let g:LatexBox_quickfix=3
 let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
+if has('macunix')
+    let g:LatexBox_viewer = "open"
+    map <silent> <LocalLeader>ls :silent !/Users/jdoppler/Downloads/Skim.app/Contents/SharedSupport/displayline -b
+                \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p"<CR>
+elseif has('unix')
+    let g:LatexBox_viewer = "evince"
+endif
 
 
 " Settings for NERDTree
