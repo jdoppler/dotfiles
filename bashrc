@@ -229,3 +229,18 @@ function solve_xml_mumps {
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
     command solve_xml_mumps${DEV} "$ARGS"
 }
+
+#-----------------------------------------------------------------------------
+# TMUX
+#-----------------------------------------------------------------------------
+# taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
+if [[ -z "$TMUX" ]] && ([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]); then
+    tmux has-session &> /dev/null
+    if [ $? -eq 1 ]; then
+      exec tmux -2 new
+      exit
+    else
+      exec tmux -2 attach
+      exit
+    fi
+fi
