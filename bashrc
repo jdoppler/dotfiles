@@ -116,7 +116,7 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
 
         # MKL environment
-        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
+        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
 
         # increase stack size
         ulimit -s unlimited
@@ -195,7 +195,6 @@ alias l='ls -CF'
 # PATH
 #-----------------------------------------------------------------------------
 PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/bin/greens_code
 PATH=$PATH:$HOME/bin/greens_code/bin
 PATH=$PATH:${CODE_PATH}/shell_utilities
 PATH=$PATH:${CODE_PATH}/greens_code_utilities
