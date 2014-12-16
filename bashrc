@@ -195,6 +195,7 @@ alias l='ls -CF'
 # PATH
 #-----------------------------------------------------------------------------
 PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin/greens_code
 PATH=$PATH:$HOME/bin/greens_code/bin
 PATH=$PATH:${CODE_PATH}/shell_utilities
 PATH=$PATH:${CODE_PATH}/greens_code_utilities
