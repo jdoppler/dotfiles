@@ -299,7 +299,52 @@ if has('macunix')
     map <silent> <LocalLeader>ls :silent !/Users/jdoppler/Downloads/Skim.app/Contents/SharedSupport/displayline -b
                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p"<CR>
 elseif has('unix')
-    let g:LatexBox_viewer = "evince"
+    " let g:LatexBox_viewer = "evince"
+    let g:LatexBox_viewer = "okular --unique"
+    " let g:LatexBox_viewer = "zathura"
+
+    ""
+    "" taken and adapted from https://github.com/gergap/vim-latexview
+    ""
+
+    "" The function FindRoot() is from the script
+    "" live-latex-preview.vim by Kevin C. Klement
+    "" klement <at> philos <dot> umass <dot> edu
+
+    "" Search for root file
+    function! FindRoot()
+        let g:RootFile = expand("%")
+        for linenum in range(1,5)
+            let linecontents = getline(linenum)
+            if linecontents =~ 'root\s*='
+                let g:RootFile = expand("%:p:h")."/".substitute(linecontents, '.*root\s*=\s*', "", "")
+                let g:RootFile = substitute(g:RootFile, '\s*$', "", "")
+                echom "RootFile=".g:RootFile
+            endif
+        endfor
+        let g:RootFileName = substitute(g:RootFile, '\.tex$', "", "")
+    endfunction
+    call FindRoot()
+
+    " Forward search
+    function! PDFForward()
+        call FindRoot()
+        if filereadable(g:RootFileName."."."pdf")
+            let cmd = g:LatexBox_viewer . " \"".g:RootFileName."."."pdf"."\"\#src:".line('.').expand("%:p")." &" "
+            " let cmd1 = g:LatexBox_viewer . " --synctex-forward -x 'vim +%{line} %{input}' ".g:RootFileName."."."pdf"." &"
+            " let cmd2 = g:LatexBox_viewer . " --synctex-forward ".line('.').":1:".expand("%:p")." ".g:RootFileName."."."pdf"
+            " echom "cmd1=".cmd1
+            " echom "cmd2=".cmd2
+            " silent! call system(cmd1)
+            " silent! call system(cmd2)
+            silent! call system(cmd)
+        else
+            echo "Output file not readable."
+        endif
+    endfunction
+
+    " Mapping forward search to <leader>ls
+    nmap <Leader>ls :call PDFForward()<CR>
 endif
 
 

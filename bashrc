@@ -117,7 +117,7 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
 
         # MKL environment
-        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
+        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
 
         # increase stack size
         ulimit -s unlimited
@@ -229,4 +229,21 @@ function solve_xml_mumps {
     SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
     command solve_xml_mumps${DEV} "$ARGS"
+}
+
+#-----------------------------------------------------------------------------
+# TMUX
+#-----------------------------------------------------------------------------
+# taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
+function use_tmux {
+    if [[ -z "$TMUX" ]]; then
+        tmux has-session &> /dev/null
+        if [ $? -eq 1 ]; then
+        exec tmux -2 new
+        exit
+        else
+        exec tmux -2 attach
+        exit
+        fi
+    fi
 }
