@@ -300,8 +300,8 @@ if has('macunix')
                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p"<CR>
 elseif has('unix')
     " let g:LatexBox_viewer = "evince"
-    let g:LatexBox_viewer = "okular --unique"
-    " let g:LatexBox_viewer = "zathura"
+    " let g:LatexBox_viewer = "okular --unique"
+    let g:LatexBox_viewer = "zathura"
 
     ""
     "" taken and adapted from https://github.com/gergap/vim-latexview
@@ -327,24 +327,36 @@ elseif has('unix')
     call FindRoot()
 
     " Forward search
-    function! PDFForward()
+    " function! PDFForward()
+    "     call FindRoot()
+    "     if filereadable(g:RootFileName."."."pdf")
+    "         let cmd = g:LatexBox_viewer . " \"".g:RootFileName."."."pdf"."\"\#src:".line('.').expand("%:p")." &" "
+    "         " let cmd1 = g:LatexBox_viewer . " --synctex-forward -x 'vim +%{line} %{input}' ".g:RootFileName."."."pdf"." &"
+    "         " let cmd2 = g:LatexBox_viewer . " --synctex-forward ".line('.').":1:".expand("%:p")." ".g:RootFileName."."."pdf"
+    "         " echom "cmd1=".cmd1
+    "         " echom "cmd2=".cmd2
+    "         " silent! call system(cmd1)
+    "         " silent! call system(cmd2)
+    "         silent! call system(cmd)
+    "     else
+    "         echo "Output file not readable."
+    "     endif
+    " endfunction
+    "
+    function! Zathura_SyncTexForward()
         call FindRoot()
-        if filereadable(g:RootFileName."."."pdf")
-            let cmd = g:LatexBox_viewer . " \"".g:RootFileName."."."pdf"."\"\#src:".line('.').expand("%:p")." &" "
-            " let cmd1 = g:LatexBox_viewer . " --synctex-forward -x 'vim +%{line} %{input}' ".g:RootFileName."."."pdf"." &"
-            " let cmd2 = g:LatexBox_viewer . " --synctex-forward ".line('.').":1:".expand("%:p")." ".g:RootFileName."."."pdf"
-            " echom "cmd1=".cmd1
-            " echom "cmd2=".cmd2
-            " silent! call system(cmd1)
-            " silent! call system(cmd2)
-            silent! call system(cmd)
-        else
-            echo "Output file not readable."
-        endif
+        let source = expand("%:p")
+        let input = shellescape(line(".").":".col(".").":".source)
+        " let output = g:RootFileName."."."pdf"
+        let output = LatexBox_GetOutputFile()
+        let execstr = "zathura --synctex-forward=".input." ".shellescape(output)
+        silent! call system(execstr)
     endfunction
+    " nmap <buffer> <Leader>f :call Zathura_SyncTexForward()<CR>
+    nmap <Leader>ls :call Zathura_SyncTexForward()<CR>
 
     " Mapping forward search to <leader>ls
-    nmap <Leader>ls :call PDFForward()<CR>
+    " nmap <Leader>ls :call PDFForward()<CR>
 endif
 
 
