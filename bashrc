@@ -78,6 +78,7 @@ case $(hostname) in
         PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
 
         # path
+        # brew binaries before system defaults
         PATH=/usr/local/bin:$PATH
 
         PYTHONPATH=$PYTHONPATH:$CODE_PATH/PythonGreensCode
@@ -117,7 +118,7 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
 
         # MKL environment
-        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64
+        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
 
         # increase stack size
         ulimit -s unlimited
@@ -175,7 +176,7 @@ elif [ "$(uname)" == "Linux" ]; then
     alias vimdiff="$HOME/.local/bin/vimdiff"
 fi
 
-alias ip="ipython --pylab"
+alias ip="ipython" # --pylab" slow startup due to %matplotlib under MacOSX
 alias gru="git remote update && git status"
 
 alias ITP="cd ${CODE_PATH}"
