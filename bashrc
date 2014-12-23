@@ -95,6 +95,7 @@ case $(hostname) in
             ;;
             "fabian")
                 # alias
+                alias gnuplot='rlwrap -a -c gnuplot'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
                 alias open='gnome-open'
                 alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
