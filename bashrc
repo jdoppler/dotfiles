@@ -99,7 +99,9 @@ case $(hostname) in
                 alias gnuplot='rlwrap -a -c gnuplot'
                 alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
                 alias open='gnome-open'
-                alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
+                # use autofs instead
+                #alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
+                alias VSC="cd $HOME/VSC/VSC1"
 
                 # MKL environment
                 # source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
@@ -247,4 +249,11 @@ function use_tmux {
         exit
         fi
     fi
+}
+
+
+# open local directory $HOME/VSC/VSC1/path via ssh on VSC1
+function VSCopen {
+    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC1@/home/lv70072/doppler@g")"
+    ssh -X doppler@vsc.tuwien.ac.at -t "cd $VSCDIR && /bin/bash --login"
 }
