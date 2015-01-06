@@ -74,8 +74,10 @@ case $(hostname) in
         alias tpdd='t view project_done all'
         alias tdp='t view project_date'
 
-        source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
-        PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
+        if [ -f $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion ]; then
+            source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
+            PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
+        fi
 
         # path
         # brew binaries before system defaults
@@ -178,7 +180,7 @@ elif [ "$(uname)" == "Linux" ]; then
     alias vimdiff="$HOME/.local/bin/vimdiff"
 fi
 
-alias ip="ipython" # --pylab" slow startup due to %matplotlib under MacOSX
+alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
 alias gru="git remote update && git status"
 
 alias ITP="cd ${CODE_PATH}"
