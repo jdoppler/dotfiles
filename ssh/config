@@ -1,29 +1,23 @@
+Host *
+    ForwardAgent yes
+    ForwardX11 yes
+
 Host fabian
     User doppler
     Hostname fabian.itp.tuwien.ac.at
-    ForwardAgent Yes
-    ForwardX11 Yes
 
 Host fabian2
     User doppler
     Hostname 128.130.48.136
-    ForwardAgent Yes
-    ForwardX11 Yes
 
 Host vsc
     User doppler
     Hostname vsc.tuwien.ac.at
-    ForwardAgent Yes
-    ForwardX11 Yes
 
 Host vsc2
     User doppler
     Hostname vsc2.tuwien.ac.at
-    ForwardAgent Yes
-    ForwardX11 Yes
 
 Host impa
     User jorg
     Hostname piazzolla.fluid.impa.br
-    ForwardAgent Yes
-    ForwardX11 Yes
