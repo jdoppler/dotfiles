@@ -29,6 +29,7 @@ export PROMPT_COMMAND="history -a; history -n;"
 # GIT
 #-----------------------------------------------------------------------------
 alias gru='git remote update && git status'
+alias git_get_remote_branch='for remote in $(git branch -r | grep -v master); do git checkout --track $remote; done; git checkout master'
 
 # git auto-completion & shell promt
 source ~/.git-completion.bash
