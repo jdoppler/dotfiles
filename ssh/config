@@ -15,6 +15,10 @@ Host vsc
     User doppler
     Hostname vsc.tuwien.ac.at
 
+Host pra3
+    User pra3
+    Hostname vsc.tuwien.ac.at
+
 Host vsc2
     User doppler
     Hostname vsc2.tuwien.ac.at

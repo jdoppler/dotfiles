@@ -29,6 +29,7 @@ export PROMPT_COMMAND="history -a; history -n;"
 # GIT
 #-----------------------------------------------------------------------------
 alias gru='git remote update && git status'
+alias git_get_remote_branch='for remote in $(git branch -r | grep -v master); do git checkout --track $remote; done; git checkout master'
 
 # git auto-completion & shell promt
 source ~/.git-completion.bash
@@ -62,8 +63,8 @@ export EDITOR='vi'
 case $(hostname) in
     "jd"|"fabian")
         # alias
-        alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/_VSC"
-        alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/_paper/"
+        alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
+        alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
 
         # todo.txt aliases and paths
         alias t='todo.sh'
@@ -187,10 +188,10 @@ alias ITP="cd ${CODE_PATH}"
 alias EP_code="cd ${CODE_PATH}/exceptional_points"
 alias dot='cd $HOME/.dotfiles'
 
-alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
-alias pra3='ssh -X pra3@vsc.tuwien.ac.at'
-alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
-alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
+# alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
+# alias pra3='ssh -X pra3@vsc.tuwien.ac.at'
+# alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
+# alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
 
 # some more ls aliases
 alias ll='ls -alF'
