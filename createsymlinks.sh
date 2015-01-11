@@ -8,7 +8,7 @@
 #
 
 DOTDIR=$HOME/.dotfiles
-FILES="bashrc inputrc vim vimrc"
+FILES="bashrc inputrc vim vimrc ssh/config"
 
 for file in $FILES; do
     DOTFILE=$HOME/.$file
