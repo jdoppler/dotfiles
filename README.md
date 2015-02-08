@@ -11,7 +11,13 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 ###Contents
 * ###bashrc
 
+* ###gitconfig
+
 * ###inputrc
+
+* ###matplotlibrc
+
+* ###ssh_config
 
 * ###vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:
