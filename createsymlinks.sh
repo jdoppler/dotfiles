@@ -8,7 +8,7 @@
 #
 
 DOTDIR=$HOME/.dotfiles
-FILES="bashrc gitconfig inputrc ssh/config vim vimrc "
+FILES="bashrc gitconfig inputrc matplotlib/matplotlibrc ssh/config vim vimrc"
 
 for file in $FILES; do
     DOTFILE=$HOME/.$file
