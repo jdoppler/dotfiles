@@ -11,7 +11,6 @@ DOTDIR=$HOME/.dotfiles
 FILES="bashrc
        gitconfig
        inputrc
-       matplotlib/matplotlibrc
        ssh/config
        vim
        vimrc"
