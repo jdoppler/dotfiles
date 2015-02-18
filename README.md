@@ -15,8 +15,6 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 
 * ###inputrc
 
-* ###matplotlibrc
-
 * ###ssh_config
 
 * ###vim & vimrc
