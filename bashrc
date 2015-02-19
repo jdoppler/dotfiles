@@ -11,7 +11,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # unmap <C-s>
-stty stop undef
+[[ $- == *i* ]] && stty stop undef
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS
