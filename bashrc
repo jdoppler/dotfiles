@@ -84,8 +84,6 @@ case $(hostname) in
         # brew binaries before system defaults
         PATH=/usr/local/bin:$PATH
 
-        PYTHONPATH=$PYTHONPATH:$CODE_PATH/PythonGreensCode
-
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
 
@@ -216,6 +214,7 @@ export PATH
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional_points
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/PythonGreensCode
 export PYTHONPATH
 
 #-----------------------------------------------------------------------------
