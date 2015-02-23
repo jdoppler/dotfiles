@@ -8,20 +8,29 @@
 #
 
 DOTDIR=$HOME/.dotfiles
-FILES="bashrc gitconfig inputrc ssh/config vim vimrc "
+FILES="bashrc
+       gitconfig
+       inputrc
+       ssh/config
+       vim
+       vimrc"
 
 for file in $FILES; do
     DOTFILE=$HOME/.$file
 
     echo "Creating symlink to $file in \$HOME..."
 
-    if [[ -L "$DOTFILE" ]]; then
-        echo "Warning: $DOTFILE symlink to $(readlink $DOTFILE) already exists"
+    if [[ -e "$DOTFILE" ]]; then
+        if [[ -L "$DOTFILE" ]]; then
+            echo "Warning: $DOTFILE symlink to $(readlink $DOTFILE) already exists"
+        else
+            echo "Warning: $DOTFILE already exists"
+        fi
         read -p "Overwrite? (y/n) " -n 1
 
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             ln -sf $DOTDIR/$file $DOTFILE
-        fi;
+        fi
     else
         ln -s $DOTDIR/$file $DOTFILE
     fi

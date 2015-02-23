@@ -11,7 +11,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # unmap <C-s>
-stty stop undef
+[[ $- == *i* ]] && stty stop undef
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS
@@ -83,8 +83,6 @@ case $(hostname) in
         # path
         # brew binaries before system defaults
         PATH=/usr/local/bin:$PATH
-
-        PYTHONPATH=$PYTHONPATH:$CODE_PATH/PythonGreensCode
 
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
@@ -219,6 +217,7 @@ export PATH
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional_points
+PYTHONPATH=$PYTHONPATH:${CODE_PATH}/PythonGreensCode
 export PYTHONPATH
 
 #-----------------------------------------------------------------------------
