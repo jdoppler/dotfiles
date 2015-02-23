@@ -126,6 +126,9 @@ case $(hostname) in
         # MKL environment
         PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
 
+        # pythonpath
+        PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/:$PYTHONPATH
+
         # increase stack size
         ulimit -s unlimited
 
@@ -135,8 +138,8 @@ case $(hostname) in
                 alias mirage='/home/lv70072/libischg/bin/mirage'
 
                 # pythonpath
-                PYTHONPATH=$PYTHONPATH:/opt/sw/numpy/1.8.0/lib64/python2.7/site-packages/
-                PYTHONPATH=$PYTHONPATH:/opt/sw/scipy/0.13.2_numpy1.8.0/lib/python2.7/site-packages/
+                # PYTHONPATH=$PYTHONPATH:/opt/sw/numpy/1.8.0/lib64/python2.7/site-packages/
+                # PYTHONPATH=$PYTHONPATH:/opt/sw/scipy/0.13.2_numpy1.8.0/lib/python2.7/site-packages/
 
                 # prompt
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
