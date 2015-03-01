@@ -9,7 +9,7 @@ Host fabian
 
 Host fabian2
     User doppler
-    Hostname 128.130.48.136
+    Hostname fabian2.itp.tuwien.ac.at
 
 Host vsc
     User doppler
