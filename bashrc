@@ -90,7 +90,7 @@ case $(hostname) in
         case $(hostname) in
             "jd")
                 # alias
-                alias ipn='ipython notebook --pylab=inline --browser=Safari'
+                alias ipn='ipython notebook --browser=Safari'
 
                 # iTerm2 colors
                 export TERM=xterm-256color
@@ -98,7 +98,7 @@ case $(hostname) in
             "fabian")
                 # alias
                 alias gnuplot='rlwrap -a -c gnuplot'
-                alias ipn='ipython notebook --pylab=inline --browser=chromium-browser'
+                alias ipn='ipython notebook --browser=chromium-browser'
                 alias open='gnome-open'
                 # use autofs instead
                 #alias vscmount='sshfs doppler@vsc.tuwien.ac.at:/home/lv70072/doppler /home/doppler/VSC'
@@ -111,7 +111,6 @@ case $(hostname) in
         esac
         ;;
     "l01"|"l21.gb")
-
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
         alias python="$HOME/bin/python2.7"
@@ -134,10 +133,6 @@ case $(hostname) in
             "l01")
                 # alias
                 alias mirage='/home/lv70072/libischg/bin/mirage'
-
-                # pythonpath
-                # PYTHONPATH=$PYTHONPATH:/opt/sw/numpy/1.8.0/lib64/python2.7/site-packages/
-                # PYTHONPATH=$PYTHONPATH:/opt/sw/scipy/0.13.2_numpy1.8.0/lib/python2.7/site-packages/
 
                 # prompt
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
@@ -190,11 +185,6 @@ alias ITP="cd ${CODE_PATH}"
 alias EP_code="cd ${CODE_PATH}/exceptional_points"
 alias dot='cd $HOME/.dotfiles'
 
-# alias vsc='ssh -X doppler@vsc.tuwien.ac.at'
-# alias pra3='ssh -X pra3@vsc.tuwien.ac.at'
-# alias vsc2='ssh -X doppler@vsc2.tuwien.ac.at'
-# alias fabian='ssh -X doppler@fabian.itp.tuwien.ac.at'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -240,6 +230,12 @@ function solve_xml_mumps {
     command solve_xml_mumps${DEV} "$ARGS"
 }
 
+# open local directory $HOME/VSC/VSC1/path via ssh on VSC1
+function VSCopen {
+    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC1@/home/lv70072/doppler@g")"
+    ssh -X doppler@vsc.tuwien.ac.at -t "cd $VSCDIR && /bin/bash --login"
+}
+
 #-----------------------------------------------------------------------------
 # TMUX
 #-----------------------------------------------------------------------------
@@ -255,11 +251,4 @@ function use_tmux {
         exit
         fi
     fi
-}
-
-
-# open local directory $HOME/VSC/VSC1/path via ssh on VSC1
-function VSCopen {
-    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC1@/home/lv70072/doppler@g")"
-    ssh -X doppler@vsc.tuwien.ac.at -t "cd $VSCDIR && /bin/bash --login"
 }
