@@ -383,6 +383,12 @@ let g:airline_section_warning=''
 autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 
 
+" Settings for vim-gitgutter
+highlight clear SignColumn
+let g:gitgutter_sign_column_always=1
+set updatetime=750
+
+
 " Settings for vim-ipython
 
 

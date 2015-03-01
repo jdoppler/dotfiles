@@ -27,6 +27,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [vim-airline](https://github.com/bling/vim-airline)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
  * [vim-fugitive](https://github.com/tpope/vim-fugitive)
+ * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
  * [vim-ipython](https://github.com/ivanov/vim-ipython)
  
  ####Adding plugins
