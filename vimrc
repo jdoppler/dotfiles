@@ -1,6 +1,6 @@
 " ============================================================================
 "
-"   .vimrc 
+"   .vimrc
 "   taken largely from https://github.com/mbrochh/vim-as-a-python-ide
 "
 " ============================================================================
@@ -92,11 +92,11 @@ vnoremap > >gv  " better indentation
 
 
 " show whitespace (must be inserted before the colorscheme command)
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 
-" color scheme 
+" color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " git clone https://github.com/tomasr/molokai.git
 set t_Co=256
@@ -373,8 +373,6 @@ nmap <F4> :NERDTreeToggle<CR>
 " Settings for vim-airline
 let g:airline_theme="badwolf"
 let g:airline_powerline_fonts=1
-" let g:airline_left_sep=""
-" let g:airline_right_sep=""
 let g:airline#extensions#whitespace#enabled=0
 let g:airline_section_y=airline#section#create(['BN: %n'])  " show buffernumber
 let g:airline_section_warning=''
