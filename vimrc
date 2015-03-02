@@ -372,8 +372,9 @@ nmap <F4> :NERDTreeToggle<CR>
 
 " Settings for vim-airline
 let g:airline_theme="badwolf"
-let g:airline_left_sep=""
-let g:airline_right_sep=""
+let g:airline_powerline_fonts=1
+" let g:airline_left_sep=""
+" let g:airline_right_sep=""
 let g:airline#extensions#whitespace#enabled=0
 let g:airline_section_y=airline#section#create(['BN: %n'])  " show buffernumber
 let g:airline_section_warning=''
