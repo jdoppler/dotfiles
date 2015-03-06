@@ -10,6 +10,11 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
+# different colors for specific filetypes
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
 # unmap <C-s>
 [[ $- == *i* ]] && stty stop undef
 
@@ -189,6 +194,7 @@ alias dot='cd $HOME/.dotfiles'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias grep='grep --color=auto'
 
 #-----------------------------------------------------------------------------
 # PATH
