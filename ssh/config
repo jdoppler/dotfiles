@@ -15,14 +15,15 @@ Host vsc
     User doppler
     Hostname vsc.tuwien.ac.at
 
-Host pra3
-    User pra3
-    Hostname vsc.tuwien.ac.at
-
 Host vsc2
     User doppler
     Hostname vsc2.tuwien.ac.at
 
-Host impa
-    User jorg
-    Hostname piazzolla.fluid.impa.br
+Host vsc3
+    User doppler2
+    Hostname vsc3.vsc.ac.at
+    Port 27
+
+Host pra3
+    User pra3
+    Hostname vsc.tuwien.ac.at
