@@ -115,7 +115,7 @@ case $(hostname) in
              ;;
         esac
         ;;
-    "l01"|"l21.gb")
+    "l01"|"l21.gb"|l3[0-9])
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
         alias python="$HOME/bin/python2.7"
@@ -151,6 +151,17 @@ case $(hostname) in
 
                 # no core dumps
                 ulimit -c 0
+            ;;
+            l3[0-9])
+                # alias
+                #alias mirage='/home/lv70387/florianL/bin/mirage'
+
+                # path
+                PATH=~/bin:$PATH
+                LD_LIBRARY_PATH=/opt/sw/x86_64/glibc-2.12/ivybridge-ep/python/2.7.8/gnu-4.4.7/lib:$LD_LIBRARY_PATH
+
+                # prompt
+                export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
         esac
     ;;
