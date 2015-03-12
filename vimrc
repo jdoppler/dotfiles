@@ -370,6 +370,13 @@ nmap <F4> :NERDTreeToggle<CR>
 " Settings for Supertab
 
 
+" Settings for UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
 " Settings for vim-airline
 let g:airline_theme="badwolf"
 let g:airline_powerline_fonts=1
@@ -389,5 +396,7 @@ set updatetime=750
 
 
 " Settings for vim-ipython
+
+
 
 
