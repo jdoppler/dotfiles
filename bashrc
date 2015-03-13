@@ -87,7 +87,7 @@ case $(hostname) in
 
         # path
         # brew binaries before system defaults
-        PATH=/usr/local/bin:$PATH
+        PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
         # promt
         export PS1="${GREEN}\u${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
