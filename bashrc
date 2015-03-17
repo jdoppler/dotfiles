@@ -159,6 +159,8 @@ case $(hostname) in
                 # path
                 PATH=~/bin:$PATH
                 LD_LIBRARY_PATH=/opt/sw/x86_64/glibc-2.12/ivybridge-ep/python/2.7.8/gnu-4.4.7/lib:$LD_LIBRARY_PATH
+                # MKL
+                source /cm/shared/apps/intel-cluster-studio/composer_xe_2013_sp1.2.144/mkl/bin/mklvars.sh intel64
 
                 # prompt
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
