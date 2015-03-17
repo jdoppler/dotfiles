@@ -19,10 +19,6 @@ Host vsc2
     User doppler
     Hostname vsc2.tuwien.ac.at
 
-Host vsc3-login
-    User doppler2
-    Hostname vsc3.vsc.ac.at
-
 Host vsc3
     User doppler2
     Hostname vsc3.vsc.ac.at
