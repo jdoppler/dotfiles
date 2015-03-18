@@ -118,7 +118,6 @@ case $(hostname) in
     "l01"|"l21.gb"|l3[0-9])
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
-        #alias python="$HOME/bin/python2.7"
         alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
         # path
@@ -139,12 +138,18 @@ case $(hostname) in
                 # alias
                 alias mirage='/home/lv70072/libischg/bin/mirage'
 
+                # path
+                PATH=/opt/sw/python/2.7.5/bin:$PATH
+
                 # prompt
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
             "l21.gb")
                 # alias
                 alias mirage='/home/lv70387/florianL/bin/mirage'
+
+                # path
+                PATH=/opt/sw/python/2.7.5/bin:$PATH
 
                 # prompt
                 export PS1="${WHITE}\u${GREEN}@${WHITE}VSC-2:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
