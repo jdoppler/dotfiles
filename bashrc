@@ -118,7 +118,7 @@ case $(hostname) in
     "l01"|"l21.gb"|l3[0-9])
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
-        alias python="$HOME/bin/python2.7"
+        #alias python="$HOME/bin/python2.7"
         alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
         # path
@@ -154,12 +154,17 @@ case $(hostname) in
             ;;
             l3[0-9])
                 # alias
-                #alias mirage='/home/lv70387/florianL/bin/mirage'
+                alias qstat="squeue -u $USER"
 
                 # path
-                PATH=~/bin:$PATH
+                PATH=/home/lv70683/doppler2/sw/miniconda/bin:$PATH
+
+                # pythonpath
+                PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH
+                PYTHONPATH=$HOME/sw/miniconda/lib/python2.7/site-packages:$PYTHONPATH
+
+                # ld path & MKL
                 LD_LIBRARY_PATH=/opt/sw/x86_64/glibc-2.12/ivybridge-ep/python/2.7.8/gnu-4.4.7/lib:$LD_LIBRARY_PATH
-                # MKL
                 source /cm/shared/apps/intel-cluster-studio/composer_xe_2013_sp1.2.144/mkl/bin/mklvars.sh intel64
 
                 # prompt
