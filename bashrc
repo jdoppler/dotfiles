@@ -12,7 +12,8 @@ fi
 
 # different colors for specific filetypes
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    # test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    eval "$(dircolors -b)"
 fi
 
 # unmap <C-s>
