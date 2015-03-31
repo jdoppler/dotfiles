@@ -159,7 +159,7 @@ case $(hostname) in
             ;;
             l3[0-9])
                 # alias
-                alias qstat="squeue -u $USER -r"
+                alias qstat="squeue -u $USER"
 
                 # path
                 PATH=/home/lv70683/doppler2/sw/miniconda/bin:$PATH
