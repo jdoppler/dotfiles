@@ -20,6 +20,11 @@ Host vsc2
     Hostname vsc2.tuwien.ac.at
 
 Host vsc3
+    User doppler
+    Hostname vsc3.vsc.ac.at
+    Port 27
+
+Host vsc3test
     User doppler2
     Hostname vsc3.vsc.ac.at
     Port 27
