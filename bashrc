@@ -161,12 +161,12 @@ case $(hostname) in
             l3[0-9])
                 # alias
                 alias qstat="squeue -u $USER"
+                alias gnuplot='/opt/sw/x86_64/glibc-2.12/ivybridge-ep/gnuplot/5.0.0/gnu-4.4.7/bin/gnuplot'
 
                 # path
-                PATH=/home/lv70683/doppler2/sw/miniconda/bin:$PATH
+                PATH=/home/lv70072/doppler/sw/miniconda/bin:$PATH
 
                 # pythonpath
-                PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH
                 PYTHONPATH=$HOME/sw/miniconda/lib/python2.7/site-packages:$PYTHONPATH
 
                 # ld path & MKL
@@ -282,3 +282,4 @@ function use_tmux {
         fi
     fi
 }
+
