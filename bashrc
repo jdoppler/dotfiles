@@ -119,7 +119,6 @@ case $(hostname) in
     "l01"|"l21.gb"|l3[0-9])
         # alias
         alias greens_code='cd ~/bin/greens_code/src'
-        alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
         # path
         PATH=~/.local/bin:$PATH
@@ -138,6 +137,7 @@ case $(hostname) in
             "l01")
                 # alias
                 alias mirage='/home/lv70072/libischg/bin/mirage'
+                alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
                 # path
                 PATH=/opt/sw/python/2.7.5/bin:$PATH
@@ -148,6 +148,7 @@ case $(hostname) in
             "l21.gb")
                 # alias
                 alias mirage='/home/lv70387/florianL/bin/mirage'
+                alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
 
                 # path
                 PATH=/opt/sw/python/2.7.5/bin:$PATH
@@ -161,7 +162,6 @@ case $(hostname) in
             l3[0-9])
                 # alias
                 alias qstat="squeue -u $USER"
-                alias gnuplot='/opt/sw/x86_64/glibc-2.12/ivybridge-ep/gnuplot/5.0.0/gnu-4.4.7/bin/gnuplot'
 
                 # path
                 PATH=/home/lv70072/doppler/sw/miniconda/bin:$PATH
