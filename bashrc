@@ -106,7 +106,7 @@ case $(hostname) in
                 alias gnuplot='rlwrap -a -c gnuplot'
                 alias ipn='ipython notebook --browser=chromium-browser'
                 alias open='gnome-open'
-                alias VSC="cd $HOME/VSC/VSC3"
+                alias vsc="cd $HOME/VSC/VSC3"
 
                 # MKL environment
                 # source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
@@ -258,8 +258,8 @@ function solve_xml_mumps {
     command solve_xml_mumps${DEV} "$ARGS"
 }
 
-# open local directory $HOME/VSC/VSC1/path via ssh on VSC1
-function VSCopen {
+# open local directory $HOME/VSC/VSC3/path via ssh on VSC3
+function vscopen {
     VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC3@/home/lv70072/doppler@g")"
     ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
 }
