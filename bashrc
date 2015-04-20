@@ -67,7 +67,7 @@ export EDITOR='vi'
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
 case $(hostname) in
-    "jd"|"fabian")
+    "jd"|"fabian"|"fabian2")
         # alias
         alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
         alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
@@ -101,7 +101,7 @@ case $(hostname) in
                 # iTerm2 colors
                 export TERM=xterm-256color
             ;;
-            "fabian")
+            "fabian"|"fabian2")
                 # alias
                 alias gnuplot='rlwrap -a -c gnuplot'
                 alias ipn='ipython notebook --browser=chromium-browser'
