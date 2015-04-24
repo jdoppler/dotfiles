@@ -122,6 +122,8 @@ case $(hostname) in
         PATH=~/.local/bin:$PATH
         LD_LIBRARY_PATH=$HOME/.local/lib:$HOME/.local/include:$LD_LIBRARY_PATH
 
+        export MANPATH=~/.local/share/man:$MANPATH
+
         # MKL environment
         PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
 
