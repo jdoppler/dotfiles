@@ -210,8 +210,8 @@ fi
 alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
 alias gru="git remote update && git status"
 
-alias ITP="cd ${CODE_PATH}"
-alias EP_code="cd ${CODE_PATH}/exceptional_points"
+alias code="cd ${CODE_PATH}"
+alias codeEP="cd ${CODE_PATH}/exceptional_points"
 alias dot='cd $HOME/.dotfiles'
 
 # some more ls aliases
