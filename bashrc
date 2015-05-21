@@ -212,7 +212,7 @@ alias gru="git remote update && git status"
 
 alias code="cd ${CODE_PATH}"
 alias codeEP="cd ${CODE_PATH}/exceptional_points"
-alias dot='cd $HOME/.dotfiles'
+alias dotfiles='cd $HOME/.dotfiles'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -288,4 +288,5 @@ function use_tmux {
         fi
     fi
 }
+export -f use_tmux
 
