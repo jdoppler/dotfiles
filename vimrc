@@ -217,6 +217,19 @@ command FormatXML :%!xmllint --format --recover \- <CR>
 command Diff :w !diff %
 
 
+" toggle :window diffthis
+" taken from http://www.bestofvim.com/tip/diff-diff/
+nnoremap <silent> <Leader>df :call DiffToggle()<CR>
+
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        windo diffthis
+    endif
+:endfunction
+
+
 " show registers
 " taken from http://superuser.com/questions/656949/always-show-the-register-list-in-vim
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
