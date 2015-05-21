@@ -17,6 +17,8 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 
 * ###ssh_config
 
+* ###tmux.conf
+
 * ###vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:
  * [jedi-vim](https://github.com/davidhalter/jedi-vim)
