@@ -177,6 +177,7 @@ case $(hostname) in
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
         esac
+        use_tmux
     ;;
 esac
 
@@ -280,11 +281,11 @@ function use_tmux {
     if [[ -z "$TMUX" ]]; then
         tmux has-session &> /dev/null
         if [ $? -eq 1 ]; then
-        exec tmux -2 new
-        exit
+            exec tmux -2 new
+            exit
         else
-        exec tmux -2 attach
-        exit
+            exec tmux -2 attach
+            exit
         fi
     fi
 }
