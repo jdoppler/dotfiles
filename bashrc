@@ -259,6 +259,7 @@ function solve_xml_mumps {
     svn info ${SVN_DIR} > ${SVN_LOG_FILE}
     command solve_xml_mumps${DEV} "$ARGS"
 }
+export -f solve_xml_mumps
 
 # open local directory $HOME/VSC/VSC3/path via ssh on VSC3
 function vscopen {
@@ -269,6 +270,7 @@ function vscopen {
 function calc {
     python -c "from numpy import *; print ${1}"
 }
+export -f calc
 
 #-----------------------------------------------------------------------------
 # TMUX
