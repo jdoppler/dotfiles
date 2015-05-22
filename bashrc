@@ -161,7 +161,9 @@ case $(hostname) in
             ;;
             l3[0-9])
                 # alias
+                alias qdel="scancel"
                 alias qstat="squeue -u $USER"
+                alias qsub="sbatch"
 
                 # path
                 PATH=/home/lv70072/doppler/sw/miniconda/bin:$PATH
