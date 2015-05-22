@@ -278,6 +278,7 @@ export -f calc
 #-----------------------------------------------------------------------------
 # taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
 function use_tmux {
+    MOTD="/etc/motdt"
     if [[ -z "$TMUX" ]]; then
         tmux has-session &> /dev/null
         if [ $? -eq 1 ]; then
@@ -287,6 +288,9 @@ function use_tmux {
             exec tmux -2 attach
             exit
         fi
+    fi
+    if [[ -f "$MOTD" ]]; then
+        cat "$MOTD"
     fi
 }
 export -f use_tmux
