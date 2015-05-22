@@ -64,6 +64,57 @@ export DEFAULT='\[\033[0m\]'
 export EDITOR='vi'
 
 #-----------------------------------------------------------------------------
+# FUNCTIONS
+#-----------------------------------------------------------------------------
+# shadow solve_xml_mumps found in PATH and print svn revision output to file
+# before execution
+function solve_xml_mumps {
+    if [[ "$1" == "dev" ]]; then
+        DEV="_dev"
+        ARGS="${@: 2}"
+    else
+        DEV=""
+        ARGS="${@}"
+    fi
+    SVN_LOG_FILE="SVN_REV.log"
+    GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
+    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
+    svn info ${SVN_DIR} > ${SVN_LOG_FILE}
+    command solve_xml_mumps${DEV} "$ARGS"
+}
+export -f solve_xml_mumps
+
+# open local directory $HOME/VSC/VSC3/path via ssh on VSC3
+function vscopen {
+    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC3@/home/lv70072/doppler@g")"
+    ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
+}
+
+function calc {
+    python -c "from numpy import *; print ${1}"
+}
+export -f calc
+
+# taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
+function use_tmux {
+    MOTD="/etc/motd"
+    if [[ -z "$TMUX" ]]; then
+        tmux has-session &> /dev/null
+        if [ $? -eq 1 ]; then
+            exec tmux -2 new
+            exit
+        else
+            exec tmux -2 attach
+            exit
+        fi
+    fi
+    if [[ -f "$MOTD" ]]; then
+        cat "$MOTD"
+    fi
+}
+export -f use_tmux
+
+#-----------------------------------------------------------------------------
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
 case $(hostname) in
@@ -179,7 +230,7 @@ case $(hostname) in
                 export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
             ;;
         esac
-        use_tmux
+        # use_tmux
     ;;
 esac
 
@@ -242,58 +293,3 @@ PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional_points
 PYTHONPATH=$PYTHONPATH:${CODE_PATH}/PythonGreensCode
 export PYTHONPATH
-
-#-----------------------------------------------------------------------------
-# FUNCTIONS
-#-----------------------------------------------------------------------------
-# shadow solve_xml_mumps found in PATH and print svn revision output to file
-# before execution
-function solve_xml_mumps {
-    if [[ "$1" == "dev" ]]; then
-        DEV="_dev"
-        ARGS="${@: 2}"
-    else
-        DEV=""
-        ARGS="${@}"
-    fi
-    SVN_LOG_FILE="SVN_REV.log"
-    GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
-    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
-    svn info ${SVN_DIR} > ${SVN_LOG_FILE}
-    command solve_xml_mumps${DEV} "$ARGS"
-}
-export -f solve_xml_mumps
-
-# open local directory $HOME/VSC/VSC3/path via ssh on VSC3
-function vscopen {
-    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC3@/home/lv70072/doppler@g")"
-    ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
-}
-
-function calc {
-    python -c "from numpy import *; print ${1}"
-}
-export -f calc
-
-#-----------------------------------------------------------------------------
-# TMUX
-#-----------------------------------------------------------------------------
-# taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
-function use_tmux {
-    MOTD="/etc/motdt"
-    if [[ -z "$TMUX" ]]; then
-        tmux has-session &> /dev/null
-        if [ $? -eq 1 ]; then
-            exec tmux -2 new
-            exit
-        else
-            exec tmux -2 attach
-            exit
-        fi
-    fi
-    if [[ -f "$MOTD" ]]; then
-        cat "$MOTD"
-    fi
-}
-export -f use_tmux
-
