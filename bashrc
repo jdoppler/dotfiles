@@ -90,10 +90,19 @@ function vscopen {
     ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
 }
 
+# calculator for the commandline
 function calc {
     python -c "from numpy import *; print ${1}"
 }
 export -f calc
+
+# loop through items, echo item name and execute cat
+function forcat {
+    for i in "${@}"; do
+        echo $i; cat $i; echo
+    done
+}
+export -f forcat
 
 # taken from http://blog.thelinuxkid.com/2013/06/automatically-start-tmux-on-ssh.html
 function use_tmux {
