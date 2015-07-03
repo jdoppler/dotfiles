@@ -17,7 +17,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 
 * ###ssh_config
 
-* ###tmux.conf
+* ###tmux & tmux.conf
 
 * ###vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:

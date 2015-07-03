@@ -14,6 +14,7 @@ FILES="bashrc
        gitconfig
        inputrc
        ssh/config
+       tmux
        tmux.conf
        vim
        vimrc"
