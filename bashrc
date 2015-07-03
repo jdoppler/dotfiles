@@ -52,11 +52,17 @@ GIT_PS1_SHOWUPSTREAM= #"auto git"
 # COLORS
 #-----------------------------------------------------------------------------
 export CLICOLOR=1
-export GREEN='\[\033[0;32m\]'
-export BLUE='\[\033[0;34m\]'
-export LIGHTCYAN='\[\033[0;36m\]'
-export WHITE='\[\033[1;37m\]'
-export DEFAULT='\[\033[0m\]'
+# export GREEN='\[\033[0;32m\]'
+# export BLUE='\[\033[0;34m\]'
+# export LIGHTCYAN='\[\033[0;36m\]'
+# export WHITE='\[\033[1;37m\]'
+# export DEFAULT='\[\033[0m\]'
+export GREEN=$(tput setaf 2)
+export BLUE=$(tput setaf 4)
+export CYAN=$(tput setaf 6)
+export LIGHTCYAN=$(tput setaf 6)
+export WHITE=$(tput setaf 7)
+export DEFAULT=$(tput sgr0)
 
 #-----------------------------------------------------------------------------
 # VI(M)
@@ -151,7 +157,8 @@ case $(hostname) in
         PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
         # promt
-        export PS1="${GREEN}\u${WHITE}@${GREEN}\h${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+        # export PS1="${GREEN}\u${WHITE}@${GREEN}\h${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+        export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]\h\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
 
         case $(hostname) in
             "jd")
@@ -236,7 +243,8 @@ case $(hostname) in
                 source /cm/shared/apps/intel-cluster-studio/composer_xe_2013_sp1.2.144/mkl/bin/mklvars.sh intel64
 
                 # prompt
-                export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+                # export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
+                export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]VSC-3\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
             ;;
         esac
         # use_tmux
