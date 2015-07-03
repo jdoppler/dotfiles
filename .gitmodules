@@ -37,4 +37,7 @@
 	url = https://github.com/kien/ctrlp.vim
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux/plugins/tmux-resurrect"]
+	path = tmux/plugins/tmux-resurrect
+	url = git://github.com/tmux-plugins/tmux-resurrect
