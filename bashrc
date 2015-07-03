@@ -57,12 +57,16 @@ export CLICOLOR=1
 # export LIGHTCYAN='\[\033[0;36m\]'
 # export WHITE='\[\033[1;37m\]'
 # export DEFAULT='\[\033[0m\]'
-export GREEN=$(tput setaf 2)
-export BLUE=$(tput setaf 4)
-export CYAN=$(tput setaf 6)
-export LIGHTCYAN=$(tput setaf 6)
-export WHITE=$(tput setaf 7)
-export DEFAULT=$(tput sgr0)
+
+# test if using interactive shell
+if [[ $- == *i* ]]; then
+    export GREEN=$(tput setaf 2)
+    export BLUE=$(tput setaf 4)
+    export CYAN=$(tput setaf 6)
+    export LIGHTCYAN=$(tput setaf 6)
+    export WHITE=$(tput setaf 7)
+    export DEFAULT=$(tput sgr0)
+fi
 
 #-----------------------------------------------------------------------------
 # VI(M)
