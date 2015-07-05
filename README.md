@@ -27,6 +27,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [nerdtree](https://github.com/scrooloose/nerdtree)
  * [supertab](https://github.com/ervandew/supertab)
  * [tcomment](https://github.com/tomtom/tcomment_vim)
+ * [tmuxline.vim](https://github.com/edkolev/tmuxline.vim)
  * [UltiSnips](https://github.com/SirVer/ultisnips)
  * [vim-airline](https://github.com/bling/vim-airline)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
