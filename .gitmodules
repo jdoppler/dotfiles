@@ -44,3 +44,6 @@
 [submodule "vim/bundle/tmuxline.vim"]
 	path = vim/bundle/tmuxline.vim
 	url = git://github.com/edkolev/tmuxline.vim
+[submodule "tmux/plugins/tmux-yank"]
+	path = tmux/plugins/tmux-yank
+	url = git://github.com/tmux-plugins/tmux-yank
