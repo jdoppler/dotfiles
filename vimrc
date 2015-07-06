@@ -397,6 +397,16 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled=0
 let g:airline_section_y=airline#section#create(['BN: %n'])  " show buffernumber
 let g:airline_section_warning=''
+" tmuxline
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '%a',
+      \'y'    : '#W %R',
+      \'z'    : '#H'}
 
 
 " Settings for vim-flake8
