@@ -249,6 +249,9 @@ case $(hostname) in
                 # prompt
                 # export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
                 export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]VSC-3\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
+
+                # mayavi workaround
+                export QT_API=pyqt
             ;;
         esac
         # use_tmux
