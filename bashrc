@@ -96,7 +96,7 @@ export -f solve_xml_mumps
 
 # open local directory $HOME/VSC/VSC3/path via ssh on VSC3
 function vscopen {
-    VSCDIR="$(echo $PWD | sed "s@$HOME/VSC/VSC3@/home/lv70072/doppler@g")"
+    VSCDIR="$(echo $PWD | sed "s@/VSC/VSC3@@g" | sed "s@/home@/home/lv70072@g")"
     ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
 }
 
