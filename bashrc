@@ -234,6 +234,7 @@ case $(hostname) in
                 # alias
                 alias qdel="scancel"
                 alias qstat="squeue -u $USER"
+                alias qstat_itp="squeue --account=p70623"
                 alias qsub="sbatch"
 
                 # path
@@ -287,6 +288,7 @@ fi
 
 alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
 alias gru="git remote update && git status"
+alias greens_code_cleanup="rm *.jpg *.ppm fort.24 lower.dat upper.dat *.log* refle.*.total trans.*.total Smat.*.dat"
 
 alias code="cd ${CODE_PATH}"
 alias codeEP="cd ${CODE_PATH}/exceptional_points"
