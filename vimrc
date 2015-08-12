@@ -281,7 +281,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 1
 let g:jedi#show_call_signatures = 1
-let g:jedi#completions_command = "<C-j>"
+let g:jedi#completions_command = "<C-space>"
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "right"
 
@@ -381,6 +381,7 @@ nmap <F4> :NERDTreeToggle<CR>
 
 
 " Settings for Supertab
+let g:SuperTabDefaultCompletionType = "context"
 
 
 " Settings for UltiSnips
