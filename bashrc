@@ -74,6 +74,11 @@ fi
 export EDITOR='vi'
 
 #-----------------------------------------------------------------------------
+# Mayavi
+#-----------------------------------------------------------------------------
+export QT_API=pyqt
+
+#-----------------------------------------------------------------------------
 # FUNCTIONS
 #-----------------------------------------------------------------------------
 # shadow solve_xml_mumps found in PATH and print svn revision output to file
@@ -139,8 +144,8 @@ export -f use_tmux
 case $(hostname) in
     "jd"|"fabian"|"fabian2")
         # alias
-        alias WG="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
-        alias OM="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
+        alias wg="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
+        alias om="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
 
         # todo.txt aliases and paths
         alias t='todo.sh'
@@ -250,9 +255,6 @@ case $(hostname) in
                 # prompt
                 # export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
                 export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]VSC-3\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
-
-                # mayavi workaround
-                export QT_API=pyqt
             ;;
         esac
         # use_tmux
