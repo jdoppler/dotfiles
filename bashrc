@@ -268,6 +268,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # main code directory
     CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
     # alias
+    alias ep="cd $CODE_PATH/exceptional_points"
     alias ls='ls -GF'
     alias vi='/usr/local/bin/vim'
     alias vim='/usr/local/bin/vim'
