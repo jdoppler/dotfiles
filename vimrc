@@ -137,9 +137,10 @@ endif
 " use tabs instead of spaces
 set tabstop=4
 set softtabstop=4
+set expandtab
+
 set shiftwidth=4
 set shiftround
-set expandtab
 set smartindent
 " repair smartindent default which places comment characters at the beginning of
 " a line: http://stackoverflow.com/questions/2360249
@@ -169,6 +170,8 @@ set modelines=0
 set ruler
 set cursorline
 
+set lazyredraw
+set showmatch
 
 " statusline
 set laststatus=2
@@ -186,7 +189,6 @@ set statusline+=%<%P                         " file position
 
 " press jj to enter command mode
 imap jj <ESC>
-
 
 " show whitespace
 set list
