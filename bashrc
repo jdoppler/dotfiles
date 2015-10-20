@@ -164,6 +164,7 @@ case $(hostname) in
         # path
         # brew binaries before system defaults
         PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+        # PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
         # promt
         # export PS1="${GREEN}\u${WHITE}@${GREEN}\h${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
@@ -294,8 +295,7 @@ alias gru="git remote update && git status"
 alias greens_code_cleanup="rm *.jpg *.ppm fort.24 lower.dat upper.dat *.log* refle.*.total trans.*.total Smat.*.dat *.ascii state.*.dat"
 
 alias code="cd ${CODE_PATH}"
-alias codeEP="cd ${CODE_PATH}/exceptional_points"
-alias dotfiles='cd $HOME/.dotfiles'
+alias dot='cd $HOME/.dotfiles'
 
 # some more ls aliases
 alias ll='ls -alF'

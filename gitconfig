@@ -1,20 +1,21 @@
 [core]
-	editor = vim
+editor = vim
 [user]
-	name = jdoppler
-	email = joerg.doppler@tuwien.ac.at
+name = jdoppler
+email = joerg.doppler@tuwien.ac.at
 [color]
-	ui = auto
+ui = auto
 [diff]
-	tool = vimdiff
+tool = vimdiff
 [difftool]
-	prompt = true
+prompt = true
 [alias]
-	d = difftool
-	sdiff = difftool -y -x "sdiff -w $COLUMNS"
+d = difftool
+sdiff = difftool -y -x "sdiff -w $COLUMNS"
+br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 [merge]
-	tool = vimdiff
+tool = vimdiff
 [push]
-	default = simple
+default = simple
 [fetch]
-	prune = true
+prune = true
