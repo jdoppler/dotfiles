@@ -13,6 +13,7 @@ prompt = true
 d = difftool
 sdiff = difftool -y -x "sdiff -w $COLUMNS"
 br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+sub = submodule foreach git pull origin master
 [merge]
 tool = vimdiff
 [push]
