@@ -23,7 +23,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
 
 * ###vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:
- * [ctrlp.vim](https://github.com/kien/ctrlp.vim)
+ * [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
  * [jedi-vim](https://github.com/davidhalter/jedi-vim)
  * [LaTeX-Box](https://github.com/LaTeX-Box-Team/LaTeX-Box)
  * [nerdtree](https://github.com/scrooloose/nerdtree)
