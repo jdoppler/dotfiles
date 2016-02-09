@@ -32,6 +32,7 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [tmuxline.vim](https://github.com/edkolev/tmuxline.vim)
  * [UltiSnips](https://github.com/SirVer/ultisnips)
  * [vim-airline](https://github.com/bling/vim-airline)
+ * [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
  * [vim-flake8](https://github.com/nvie/vim-flake8)
  * [vim-fugitive](https://github.com/tpope/vim-fugitive)
  * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
