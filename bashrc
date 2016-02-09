@@ -144,6 +144,7 @@ export -f use_tmux
 case $(hostname) in
     "jd"|"fabian"|"fabian2")
         # alias
+        alias itp="cd ~/Dropbox/Project_ITP/"
         alias wg="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
         alias om="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
 
