@@ -47,3 +47,6 @@
 [submodule "tmux/plugins/tmux-yank"]
 	path = tmux/plugins/tmux-yank
 	url = git://github.com/tmux-plugins/tmux-yank
+[submodule "vim/bundle/vim-airline-themes"]
+	path = vim/bundle/vim-airline-themes
+	url = git://github.com/vim-airline/vim-airline-themes.git
