@@ -1,8 +1,8 @@
 [core]
     editor = vim
 [user]
-    name = jdoppler
-    email = joerg.doppler@tuwien.ac.at
+	name = jdoppler
+	email = joerg.doppler@gmail.com
 [color]
     ui = auto
 [diff]
