@@ -142,7 +142,7 @@ export -f use_tmux
 # MACHINE SPECIFIC SETTINGS
 #-----------------------------------------------------------------------------
 case $(hostname) in
-    "jd"|"fabian"|"fabian2")
+    "jd"|"fabian"|"fabian2"|"raspberrypi")
         # alias
         alias itp="cd ~/Dropbox/Project_ITP/"
         alias wg="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
