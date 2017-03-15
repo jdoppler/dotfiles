@@ -74,37 +74,8 @@ fi
 export EDITOR='vi'
 
 #-----------------------------------------------------------------------------
-# Mayavi
-#-----------------------------------------------------------------------------
-export QT_API=pyqt
-
-#-----------------------------------------------------------------------------
 # FUNCTIONS
 #-----------------------------------------------------------------------------
-# shadow solve_xml_mumps found in PATH and print svn revision output to file
-# before execution
-function solve_xml_mumps {
-    if [[ "$1" == "dev" ]]; then
-        DEV="_dev"
-        ARGS="${@: 2}"
-    else
-        DEV=""
-        ARGS="${@}"
-    fi
-    SVN_LOG_FILE="SVN_REV.log"
-    GREENS_CODE_EXE_PATH=$(which solve_xml_mumps${DEV})
-    SVN_DIR=$(dirname $(readlink -f ${GREENS_CODE_EXE_PATH}))/../src
-    svn info ${SVN_DIR} > ${SVN_LOG_FILE}
-    command solve_xml_mumps${DEV} "$ARGS"
-}
-export -f solve_xml_mumps
-
-# open local directory $HOME/VSC/VSC3/path via ssh on VSC3
-function vscopen {
-    VSCDIR="$(echo $PWD | sed "s@/VSC/VSC3@@g" | sed "s@/home@/home/lv70072@g")"
-    ssh vsc3 -t "cd $VSCDIR && /bin/bash --login"
-}
-
 # calculator for the commandline
 function calc {
     python -c "from numpy import *; print ${1}"
@@ -138,188 +109,55 @@ function use_tmux {
 }
 export -f use_tmux
 
-#-----------------------------------------------------------------------------
-# MACHINE SPECIFIC SETTINGS
-#-----------------------------------------------------------------------------
-case $(hostname) in
-    "jd"|"fabian"|"fabian2")
-        # alias
-        alias itp="cd ~/Dropbox/Project_ITP/"
-        alias wg="cd ~/Dropbox/Project_ITP/Project_EP/Project_Mailybaev/"
-        alias om="cd ~/Dropbox/Project_ITP/Project_EP/Project_Rabl/"
-
-        # todo.txt aliases and paths
-        alias t='todo.sh'
-        alias tp='t view project_view_without_groceries'
-        alias tc='t view context'
-        alias tpg='t view project'
-        alias tpd='t view project_done'
-        alias tpdd='t view project_done all'
-        alias tdp='t view project_date'
-
-        if [ -f $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion ]; then
-            source $HOME/Dropbox/Scripts/todo.txt_cli-2.9/todo_completion
-            PATH=$PATH:$HOME/Dropbox/Scripts/todo.txt_cli-2.9
-        fi
-
-        # path
-        # brew binaries before system defaults
-        PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-        # PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
-        # promt
-        # export PS1="${GREEN}\u${WHITE}@${GREEN}\h${WHITE}:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
-        export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]\h\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
-
-        case $(hostname) in
-            "jd")
-                # alias
-                alias ipn='ipython notebook --browser=Safari'
-
-                # iTerm2 colors
-                export TERM=xterm-256color
-            ;;
-            "fabian"|"fabian2")
-                # alias
-                alias gnuplot='rlwrap -a -c gnuplot'
-                alias ipn='ipython notebook --browser=chromium-browser'
-                alias open='gnome-open'
-                alias vsc="cd $HOME/VSC/VSC3"
-
-                # MKL environment
-                # source ~/intel/mkl/bin/intel64/mklvars_intel64.sh
-                export LD_LIBRARY_PATH="/home/doppler/intel/mkl/lib/intel64/"
-             ;;
-        esac
-        ;;
-    "l01"|"l21.gb"|l3[0-9])
-        # alias
-        alias greens_code='cd ~/bin/greens_code/src'
-
-        # path
-        PATH=~/.local/bin:$PATH
-        LD_LIBRARY_PATH=$HOME/.local/lib:$HOME/.local/include:$LD_LIBRARY_PATH
-
-        export MANPATH=~/.local/share/man:$MANPATH
-
-        # MKL environment
-        PATH=$PATH:/opt/intel/impi/4.1.1.036/intel64/bin
-
-        # pythonpath
-        PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/:$PYTHONPATH
-
-        # increase stack size
-        ulimit -s unlimited
-
-        case $(hostname) in
-            "l01")
-                # alias
-                alias mirage='/home/lv70072/libischg/bin/mirage'
-                alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
-
-                # path
-                PATH=/opt/sw/python/2.7.5/bin:$PATH
-
-                # prompt
-                export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-1:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
-            ;;
-            "l21.gb")
-                # alias
-                alias mirage='/home/lv70387/florianL/bin/mirage'
-                alias gnuplot='/opt/sw/gnuplot/4.6/bin/gnuplot'
-
-                # path
-                PATH=/opt/sw/python/2.7.5/bin:$PATH
-
-                # prompt
-                export PS1="${WHITE}\u${GREEN}@${WHITE}VSC-2:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
-
-                # no core dumps
-                ulimit -c 0
-            ;;
-            l3[0-9])
-                # alias
-                alias qdel="scancel"
-                alias qstat="squeue -u $USER"
-                alias qstat_itp="squeue --account=p70623"
-                alias qsub="sbatch"
-
-                # path
-                PATH=/home/lv70072/doppler/sw/miniconda/bin:$PATH
-
-                # pythonpath
-                PYTHONPATH=$HOME/sw/miniconda/lib/python2.7/site-packages:$PYTHONPATH
-
-                # ld path & MKL
-                LD_LIBRARY_PATH=/opt/sw/x86_64/glibc-2.12/ivybridge-ep/python/2.7.8/gnu-4.4.7/lib:$LD_LIBRARY_PATH
-                source /cm/shared/apps/intel-cluster-studio/composer_xe_2013_sp1.2.144/mkl/bin/mklvars.sh intel64
-
-                # prompt
-                # export PS1="${GREEN}\u${WHITE}@${GREEN}VSC-3:${LIGHTCYAN}\w${WHITE}\$(__git_ps1) ${GREEN}\$ ${DEFAULT}"
-                export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]VSC-3\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
-            ;;
-        esac
-        # use_tmux
-    ;;
-esac
 
 #-----------------------------------------------------------------------------
 # COMMON ALIASES
 #-----------------------------------------------------------------------------
 if [ "$(uname)" == "Darwin" ]; then
-    # main code directory
-    CODE_PATH="$HOME/Dropbox/Project_ITP/Code"
     # alias
     alias ls='ls -GF'
     alias vi='/usr/local/bin/vim'
     alias vim='/usr/local/bin/vim'
-    alias vless="vim -u /usr/share/vim/vim74/macros/less.vim"
     alias vimdiff='/usr/local/bin/vimdiff'
 elif [ "$(uname)" == "Linux" ]; then
     # main code directory
-    CODE_PATH="$HOME/bin"
-    # tell python to skip buffering
     export PYTHONUNBUFFERED=1
-    # greens_code xml templates
-    export GREENS_CODE_XML=$HOME/bin/xml_templates
     # alias
     alias ls='ls -GF --color=auto'
     alias vi="$HOME/.local/bin/vim"
     alias vim="$HOME/.local/bin/vim"
-    alias vless="vim -u $HOME/.local/share/vim/vim74/macros/less.vim"
     alias vimdiff="$HOME/.local/bin/vimdiff"
 fi
 
 alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
 alias gru="git remote update && git status"
-alias greens_code_cleanup="rm *.jpg *.ppm fort.24 lower.dat upper.dat *.log* refle.*.total trans.*.total Smat.*.dat *.ascii state.*.dat"
-
-alias code="cd ${CODE_PATH}"
-alias ep="cd $CODE_PATH/exceptional_points"
 alias dot='cd $HOME/.dotfiles'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias grep='grep --color=auto'
 
 #-----------------------------------------------------------------------------
 # PATH
 #-----------------------------------------------------------------------------
 PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/bin/greens_code/bin
-PATH=$PATH:${CODE_PATH}/shell_utilities
-PATH=$PATH:${CODE_PATH}/greens_code_utilities
-PATH=$PATH:${CODE_PATH}/exceptional_points/bin
-PATH=$PATH:${CODE_PATH}/exceptional_points/ep
 export PATH
 
 #-----------------------------------------------------------------------------
-# PYTHONPATH
+# PS1 prompt
 #-----------------------------------------------------------------------------
-PYTHONPATH=$PYTHONPATH:${CODE_PATH}/shell_utilities
-PYTHONPATH=$PYTHONPATH:${CODE_PATH}/greens_code_utilities
-PYTHONPATH=$PYTHONPATH:${CODE_PATH}/exceptional_points
-PYTHONPATH=$PYTHONPATH:${CODE_PATH}/PythonGreensCode
-export PYTHONPATH
+export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]\h\[${WHITE}\]:\[${LIGHTCYAN}\]\w\[${WHITE}\]\$(__git_ps1) \[${GREEN}\]\$ \[${DEFAULT}\]"
+
+#-----------------------------------------------------------------------------
+# MACHINE SPECIFIC SETTINGS
+#-----------------------------------------------------------------------------
+case $(hostname) in
+    "jd")
+        # path
+        # brew binaries before system defaults
+        PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+
+        # alias
+        alias ipn='ipython notebook --browser=Safari'
+
+        # iTerm2 colors
+        export TERM=xterm-256color
+esac
