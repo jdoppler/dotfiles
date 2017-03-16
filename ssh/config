@@ -1,46 +1,8 @@
-Host fabian
-    User doppler
-    Hostname fabian.itp.tuwien.ac.at
-
-Host fabianip
-    User doppler
-    Hostname 128.130.48.160
-
-Host fabian2
-    User doppler
-    Hostname fabian2.itp.tuwien.ac.at
-
-Host fabian2ip
-    User doppler
-    Hostname 128.130.48.154
-
-Host vsc
-    User doppler
-    Hostname vsc.tuwien.ac.at
-
-Host vsc2
-    User doppler
-    Hostname vsc2.tuwien.ac.at
-
-Host vsc3
-    User doppler
-    Hostname vsc3.vsc.ac.at
-    Port 27
-
-Host vsc3test
-    User doppler2
-    Hostname vsc3.vsc.ac.at
-    Port 27
-
-Host pra3
-    User pra3
-    Hostname vsc.tuwien.ac.at
-
 Host github.com
     HostName github.com
     ForwardX11 no
 
-Host pi
+Host pi3
     User mac
     HostName 192.168.0.16
 
