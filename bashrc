@@ -123,15 +123,9 @@ elif [ "$(uname)" == "Linux" ]; then
     export PYTHONUNBUFFERED=1
     # alias
     alias ls='ls -GF --color=auto'
-    alias vi="$HOME/.local/bin/vim"
-    alias vim="$HOME/.local/bin/vim"
-    alias vimdiff="$HOME/.local/bin/vimdiff"
 fi
 
 alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
-alias gru="git remote update && git status"
-alias dot='cd $HOME/.dotfiles'
-
 alias grep='grep --color=auto'
 
 #-----------------------------------------------------------------------------
@@ -150,7 +144,6 @@ export PS1="\[${GREEN}\]\u\[${WHITE}\]@\[${GREEN}\]\h\[${WHITE}\]:\[${LIGHTCYAN}
 #-----------------------------------------------------------------------------
 case $(hostname) in
     "jd")
-        # path
         # brew binaries before system defaults
         PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
