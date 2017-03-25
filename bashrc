@@ -38,8 +38,12 @@ alias gru='git remote update && git status'
 alias git_get_remote_branch='for remote in $(git branch -r | grep -v master); do git checkout --track $remote; done; git checkout master'
 
 # git auto-completion & shell promt
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
+fi
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
@@ -148,7 +152,7 @@ case $(hostname) in
         PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
         # alias
-        alias ipn='ipython notebook --browser=Safari'
+        alias ipn='jupyter-notebook --browser=Safari'
 
         # iTerm2 colors
         export TERM=xterm-256color
