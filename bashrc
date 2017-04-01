@@ -129,7 +129,7 @@ elif [ "$(uname)" == "Linux" ]; then
     alias ls='ls -GF --color=auto'
 fi
 
-alias ip="ipython --pylab" # slow startup due to %matplotlib under MacOSX
+alias ip="ipython --pylab=qt5 --TerminalInteractiveShell.editing_mode=vi"
 alias grep='grep --color=auto'
 
 #-----------------------------------------------------------------------------
