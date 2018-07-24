@@ -1,27 +1,27 @@
 .dotfiles
 ===
 
-###Installation
+### Installation
 ```sh
 git clone --recursive git@github.com:jdoppler/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 chmod +x createsymlinks.sh && ./createsymlinks.sh
 ```
 
-###Contents
-* ###bashrc
+### Contents
+* ### bashrc
 
-* ###gitconfig
+* ### gitconfig
 
-* ###inputrc
+* ### inputrc
 
-* ###matplotlibrc
+* ### matplotlibrc
 
-* ###ssh_config
+* ### ssh_config
 
-* ###tmux & tmux.conf
+* ### tmux & tmux.conf
 
-* ###vim & vimrc
+* ### vim & vimrc
  A tweaked .vimrc file with some plugins to make life easier:
  * [jedi-vim](https://github.com/davidhalter/jedi-vim)
  * [supertab](https://github.com/ervandew/supertab)
@@ -33,20 +33,20 @@ chmod +x createsymlinks.sh && ./createsymlinks.sh
  * [vim-fugitive](https://github.com/tpope/vim-fugitive)
  * [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
- ####Adding plugins
+ #### Adding plugins
  ```sh
  cd ~/.dotfiles
  git submodule add [git-repository-url] vim/bundle/[plugin-name]
  git submodule update --init
  ```
 
- ####Upgrading plugins
+ #### Upgrading plugins
  ```sh
  cd ~/.dotfiles
  git submodule foreach git pull origin master
  ```
 
- ####Removing plugins
+ #### Removing plugins
  ```sh
  cd ~/.dotfiles
  git submodule deinit vim/bundle/[plugin-name]
